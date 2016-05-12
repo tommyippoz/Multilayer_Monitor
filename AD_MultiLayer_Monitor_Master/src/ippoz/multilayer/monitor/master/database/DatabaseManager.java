@@ -255,16 +255,19 @@ public class DatabaseManager {
 	public void writeServiceStat(Service service, HashMap<String, LinkedList<HashMap<String, String>>> indicatorStats, HashMap<String, String> serviceStats) {
 		String isQuery;
 		String servStatID;
-		connector.update("insert into service_stat (service_id, serv_dur_avg, serv_dur_std, serv_obs_avg, serv_obs_std) values (" + getServiceId(service) + 
-				", " + serviceStats.get(ServiceTestExperiment.DURATION_AVG) + ", " + serviceStats.get(ServiceTestExperiment.DURATION_STD) + ", " + serviceStats.get(ServiceTestExperiment.OBSERVATION_AVG) + ", " + serviceStats.get(ServiceTestExperiment.OBSERVATION_STD) + ")");
+		connector.update("insert into service_stat (service_id, serv_dur_avg, serv_dur_std, serv_dur_std_perc, serv_obs_avg, serv_obs_std, serv_obs_std_perc) values (" + getServiceId(service) + ", " 
+				+ serviceStats.get(ServiceTestExperiment.DURATION_AVG) + ", " + serviceStats.get(ServiceTestExperiment.DURATION_STD) + ", " + serviceStats.get(ServiceTestExperiment.DURATION_STD_PERC) + ", "
+				+ serviceStats.get(ServiceTestExperiment.OBSERVATION_AVG) + ", " + serviceStats.get(ServiceTestExperiment.OBSERVATION_STD) + ", " + serviceStats.get(ServiceTestExperiment.OBSERVATION_STD_PERC) + ")");
 		servStatID = DatabaseConnector.getFirstValueByTag(connector.executeCustomQuery(null, "select max(service_stat_id) as max_ss_id from service_stat"), "max_ss_id");
 		for(String categoryTag : indicatorStats.keySet()){
-			isQuery = "insert into service_indicator_stat (service_stat_id, indicator_id, value_category_id, si_avg_first, si_std_first, si_avg_last, si_std_last, si_all_avg, si_all_std) values ";
+			isQuery = "insert into service_indicator_stat (service_stat_id, indicator_id, value_category_id, si_avg_first, si_med_first, si_mod_first, si_std_first, si_avg_last, si_med_last, si_mod_last, si_std_last, si_all_avg, si_all_med, si_all_mod, si_all_std) values ";
 			for(HashMap<String, String> iStat : indicatorStats.get(categoryTag)) {
 				if(isQuery.endsWith(")"))
 					isQuery = isQuery + ", "; 
-				isQuery = isQuery + "(" + servStatID + ", " + indicators.get(iStat.get(ServiceTestExperiment.IS_NAME)) + ", " + valueCategories.get(categoryTag) + ", " + iStat.get(ServiceTestExperiment.IS_AVG_FIRST) + ", " + iStat.get(ServiceTestExperiment.IS_STD_FIRST)
-						+ ", " + iStat.get(ServiceTestExperiment.IS_AVG_LAST) + ", " + iStat.get(ServiceTestExperiment.IS_STD_LAST) + ", " + iStat.get(ServiceTestExperiment.IS_ALL_AVG) + ", " + iStat.get(ServiceTestExperiment.IS_ALL_STD) + ")";	
+				isQuery = isQuery + "(" + servStatID + ", " + indicators.get(iStat.get(ServiceTestExperiment.IS_NAME)) + ", " + valueCategories.get(categoryTag) + ", " 
+					+ iStat.get(ServiceTestExperiment.IS_AVG_FIRST) + ", " + iStat.get(ServiceTestExperiment.IS_MED_FIRST) + ", " + iStat.get(ServiceTestExperiment.IS_MOD_FIRST) + ", " + iStat.get(ServiceTestExperiment.IS_STD_FIRST) + ", " 
+					+ iStat.get(ServiceTestExperiment.IS_AVG_LAST) + ", " + iStat.get(ServiceTestExperiment.IS_MED_LAST) + ", " + iStat.get(ServiceTestExperiment.IS_MOD_LAST) + ", " + iStat.get(ServiceTestExperiment.IS_STD_LAST) + ", " 
+					+ iStat.get(ServiceTestExperiment.IS_ALL_AVG) + ", " + iStat.get(ServiceTestExperiment.IS_ALL_MED) + ", " + iStat.get(ServiceTestExperiment.IS_ALL_MOD) + ", " + iStat.get(ServiceTestExperiment.IS_ALL_STD) + ")";	
 			}
 			connector.update(isQuery);
 		}

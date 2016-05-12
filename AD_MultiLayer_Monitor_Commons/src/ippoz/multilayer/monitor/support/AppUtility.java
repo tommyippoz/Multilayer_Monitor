@@ -11,9 +11,9 @@ import java.io.InputStreamReader;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.LinkedList;
 
 /**
  * @author Tommy
@@ -107,6 +107,31 @@ public class AppUtility {
 			mean = mean + d;
 		}
 		return mean / values.length;
+	}
+	
+	public static Double calcMedian(Double[] values){
+		Arrays.sort(values);
+		return values[(int)(values.length/2)];
+	}
+	
+	public static Double calcMode(Double[] values){
+		int freq = 0, modeFreq = 0;
+		double mode = 0;
+		Arrays.sort(values);
+		for(int i=0;i<values.length;i++){
+			if(i > 0){
+				if(values[i] == values[i-1])
+					freq++;
+				else {
+					if(freq >= modeFreq){
+						mode = values[i-1];
+						modeFreq = freq;
+						freq = 1;
+					}
+				}
+			} else freq++;
+		}
+		return mode;
 	}
 	
 	public static Double calcStd(Double[] values, Double mean){

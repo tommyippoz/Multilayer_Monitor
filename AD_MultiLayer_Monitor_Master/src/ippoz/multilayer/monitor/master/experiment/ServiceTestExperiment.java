@@ -23,14 +23,22 @@ public class ServiceTestExperiment extends Experiment {
 
 	public static final String OBSERVATION_AVG = "obs_avg";
 	public static final String OBSERVATION_STD = "obs_std";
+	public static final String OBSERVATION_STD_PERC = "obs_std_perc";
 	public static final String DURATION_AVG = "dur_avg";
 	public static final String DURATION_STD = "dur_std";
+	public static final String DURATION_STD_PERC = "dur_std_perc";
 	
 	public static final String IS_AVG_FIRST = "is_avg_first";
+	public static final String IS_MED_FIRST = "is_med_first";
+	public static final String IS_MOD_FIRST = "is_mod_first";
 	public static final String IS_STD_FIRST = "is_std_first";
 	public static final String IS_AVG_LAST = "is_avg_last";
+	public static final String IS_MED_LAST = "is_med_last";
+	public static final String IS_MOD_LAST = "is_mod_last";
 	public static final String IS_STD_LAST = "is_std_last";
 	public static final String IS_ALL_AVG = "is_avg";
+	public static final String IS_ALL_MED = "is_med";
+	public static final String IS_ALL_MOD = "is_mod";
 	public static final String IS_ALL_STD = "is_std";
 	public static final String IS_NAME = "is_name";
 	
@@ -84,8 +92,10 @@ public class ServiceTestExperiment extends Experiment {
 		}
 		outMap.put(OBSERVATION_AVG, String.valueOf(AppUtility.calcAvg(obsNumbers.toArray(new Double[obsNumbers.size()]))));
 		outMap.put(OBSERVATION_STD, String.valueOf(AppUtility.calcStd(obsNumbers.toArray(new Double[obsNumbers.size()]), AppUtility.calcAvg(obsNumbers.toArray(new Double[obsNumbers.size()])))));
+		outMap.put(OBSERVATION_STD_PERC, String.valueOf(Double.valueOf(outMap.get(OBSERVATION_STD))*100.0/Double.parseDouble(outMap.get(OBSERVATION_AVG))));
 		outMap.put(DURATION_AVG, String.valueOf(AppUtility.calcAvg(durations.toArray(new Double[durations.size()]))));
 		outMap.put(DURATION_STD, String.valueOf(AppUtility.calcStd(durations.toArray(new Double[durations.size()]), AppUtility.calcAvg(durations.toArray(new Double[durations.size()])))));
+		outMap.put(DURATION_STD_PERC, String.valueOf(Double.valueOf(outMap.get(DURATION_STD))*100.0/Double.parseDouble(outMap.get(DURATION_AVG))));
 		return outMap;
 		
 	}
@@ -117,15 +127,20 @@ public class ServiceTestExperiment extends Experiment {
 					}
 					indStat.put(IS_NAME, ind.getName());
 					indStat.put(IS_AVG_FIRST, String.valueOf(AppUtility.calcAvg(first.toArray(new Double[first.size()]))));
+					indStat.put(IS_MED_FIRST, String.valueOf(AppUtility.calcMedian(first.toArray(new Double[first.size()]))));
+					indStat.put(IS_MOD_FIRST, String.valueOf(AppUtility.calcMode(first.toArray(new Double[first.size()]))));
 					indStat.put(IS_STD_FIRST, String.valueOf(AppUtility.calcStd(first.toArray(new Double[first.size()]), AppUtility.calcAvg(first.toArray(new Double[first.size()])))));
 					indStat.put(IS_AVG_LAST, String.valueOf(AppUtility.calcAvg(last.toArray(new Double[last.size()]))));
+					indStat.put(IS_MED_LAST, String.valueOf(AppUtility.calcMedian(last.toArray(new Double[last.size()]))));
+					indStat.put(IS_MOD_LAST, String.valueOf(AppUtility.calcMode(last.toArray(new Double[last.size()]))));
 					indStat.put(IS_STD_LAST, String.valueOf(AppUtility.calcStd(last.toArray(new Double[last.size()]), AppUtility.calcAvg(last.toArray(new Double[last.size()])))));
 					indStat.put(IS_ALL_AVG, String.valueOf(AppUtility.calcAvg(all.toArray(new Double[all.size()]))));
+					indStat.put(IS_ALL_MED, String.valueOf(AppUtility.calcMedian(all.toArray(new Double[all.size()]))));
+					indStat.put(IS_ALL_MOD, String.valueOf(AppUtility.calcMode(all.toArray(new Double[all.size()]))));
 					indStat.put(IS_ALL_STD, String.valueOf(AppUtility.calcStd(all.toArray(new Double[all.size()]), AppUtility.calcAvg(all.toArray(new Double[all.size()])))));
 					outList.add(indStat);
 				}
 			}
-			
 		}		
 		return outList;
 	}
