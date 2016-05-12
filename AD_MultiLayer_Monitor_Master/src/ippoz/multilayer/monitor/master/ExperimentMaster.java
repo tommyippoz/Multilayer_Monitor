@@ -16,8 +16,6 @@ import ippoz.multilayer.monitor.support.PreferencesManager;
  */
 public class ExperimentMaster {
 
-	
-	
 	/**
 	 * @param args
 	 */
