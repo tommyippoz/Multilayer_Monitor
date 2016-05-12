@@ -4,7 +4,7 @@
 package ippoz.multilayer.monitor.master.workload;
 
 import ippoz.multilayer.commons.support.PreferencesManager;
-import ippoz.multilayer.monitor.master.experiment.Invocation;
+import ippoz.multilayer.monitor.master.services.Invocation;
 import ippoz.multilayer.monitor.master.services.MethodCall;
 import ippoz.multilayer.monitor.master.services.RemoteService;
 import ippoz.multilayer.monitor.master.services.Service;

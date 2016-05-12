@@ -1,10 +1,9 @@
 /**
  * 
  */
-package ippoz.multilayer.monitor.master.experiment;
+package ippoz.multilayer.monitor.master.services;
 
 import ippoz.multilayer.monitor.master.database.DatabaseManager;
-import ippoz.multilayer.monitor.master.services.Service;
 
 /**
  * @author Tommy

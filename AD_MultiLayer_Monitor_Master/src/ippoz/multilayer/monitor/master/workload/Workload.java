@@ -3,7 +3,7 @@
  */
 package ippoz.multilayer.monitor.master.workload;
 
-import ippoz.multilayer.monitor.master.experiment.Invocation;
+import ippoz.multilayer.monitor.master.services.Invocation;
 import ippoz.multilayer.monitor.master.services.Service;
 
 import java.util.LinkedList;
