@@ -17,31 +17,64 @@ import java.util.Collection;
 import java.util.LinkedList;
 
 /**
- * @author Tommy
+ * The Class CommunicationManager.
+ * Manages communication between Master and Slave of the experiments management.
  *
+ * @author Tommy
  */
 public class CommunicationManager {
 
+	/** The server socket. */
 	private ServerSocket ssocket;
+	
+	/** The destination IP address. */
 	private String ipAddress;
+	
+	/** The IP port. */
 	private int ipPort;
 	
+	/**
+	 * Instantiates a new communication manager.
+	 *
+	 * @param ipAddress the IP address
+	 * @param inPort the input port
+	 * @param outPort the output port
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public CommunicationManager(String ipAddress, int inPort, int outPort) throws IOException {
 		this.ipAddress = ipAddress;
 		ipPort = outPort;
 		ssocket = new ServerSocket(inPort);
 	}
 	
+	/**
+	 * Sends data through the communication channel.
+	 *
+	 * @param toSend the Object to send
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public void send(Object toSend) throws IOException {
 		LinkedList<Object> list = new LinkedList<Object>();
 		list.add(toSend);
 		send(list);
 	}
 	
+	/**
+	 * Sends a list of data through the communication channel.
+	 *
+	 * @param toSend the list to send
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public void send(Object[] toSend) throws IOException {
 		send(new LinkedList<Object>(Arrays.asList(toSend)));
 	}
 	
+	/**
+	 * Sends a collection of data through the communication channel.
+	 *
+	 * @param toSend the to send
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public void send(Collection<Object> toSend) throws IOException {
 		Socket socket = null;
 		ObjectOutputStream objStream = null;
@@ -66,6 +99,12 @@ public class CommunicationManager {
 		}
 	}
 	
+	/**
+	 * Receives data from the communication channel.
+	 *
+	 * @return the list of read objects
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public LinkedList<Object> receive() throws IOException {
 		LinkedList<Object> objList = null;
 		Socket newSocket = null;
@@ -94,6 +133,12 @@ public class CommunicationManager {
 		return objList;
 	}
 	
+	/**
+	 * Waits for a predefined message sent through the channel.
+	 *
+	 * @param message the message
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public void waitFor(MessageType message) throws IOException {
 		boolean found = false;
 		while(!found) {
@@ -106,19 +151,38 @@ public class CommunicationManager {
 		}
 	}
 	
+	/**
+	 * Waits for an OK message.
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public void waitForConfirm() throws IOException {
-		//AppLogger.logInfo(getClass(), "Waiting for confirm");
 		waitFor(MessageType.OK);
 	}
 	
+	/**
+	 * Flushes the channel.
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public void flush() throws IOException{
 		ssocket.close();
 	}
 
+	/**
+	 * Checks if the channel is alive.
+	 *
+	 * @return true, if is alive
+	 */
 	public boolean isAlive() {
 		return !ssocket.isClosed();
 	}
 
+	/**
+	 * Gets the destination IP address.
+	 *
+	 * @return the ip address
+	 */
 	public String getIpAddress() {
 		return ipAddress;
 	}
