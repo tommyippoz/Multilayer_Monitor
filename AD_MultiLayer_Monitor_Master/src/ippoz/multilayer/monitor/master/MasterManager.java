@@ -75,8 +75,6 @@ public class MasterManager {
 		File expFile = null;
 		BufferedReader reader = null;
 		String readed;
-		String[] splitted;
-		Experiment exp;
 		try {
 			expList = new LinkedList<Experiment>();
 			testList = new LinkedList<Experiment>();
@@ -84,31 +82,35 @@ public class MasterManager {
 			reader = new BufferedReader(new FileReader(expFile));
 			while(reader.ready()){
 				readed = reader.readLine();
-				if(readed != null && readed.length() > 0 && !readed.startsWith("workload_name")){
-					splitted = readed.split(",");
-					if(splitted[0].endsWith(".xml")){
-						if(ExperimentType.valueOf(readed.split(",")[1]) != ExperimentType.TEST) {
-							if(splitted.length > 7){
-								exp = new Experiment(new SoapXmlWorkload(new File(prefManager.getPreference("WORKLOAD_FOLDER") + "/" + splitted[0]), prefManager), ExperimentType.FAULTY, dbManager, Integer.parseInt(splitted[2]), parseFailures(readed), Integer.parseInt(splitted[3]), Integer.parseInt(splitted[4]));
-							} else exp = new Experiment(new SoapXmlWorkload(new File(prefManager.getPreference("WORKLOAD_FOLDER") + "/" + splitted[0]), prefManager), ExperimentType.GOLDEN, dbManager, Integer.parseInt(splitted[2]), null, Integer.parseInt(splitted[3]), Integer.parseInt(splitted[4]));
-							if(!exp.canExecute()){
-								for(Experiment newExp : exp.getNeededTests(availableWorkloads, Integer.parseInt(prefManager.getPreference("TEST_ITERATIONS")), Integer.parseInt(splitted[5]), Integer.parseInt(splitted[6]))){
-									if(!isInTestList(newExp))
-										testList.add(newExp);
-								}
-							}
-							expList.add(exp);
-							AppLogger.logInfo(getClass(), "Readed '"+ exp.getExpType().toString() + "' experiment: " + exp.getWorkload().getName());
-						} else {} // TODO
-					}
-					System.out.print(".");
-				}
+				if(readed != null && readed.length() > 0 && !readed.startsWith("workload_name"))
+					parseExperiment(readed.trim());
 			}
 			reader.close();	
 		} catch(IOException ex){
 			AppLogger.logException(getClass(), ex, "Unable to load experiments");
 		}
 		
+	}
+	
+	private void parseExperiment(String readed){
+		Experiment exp;
+		String[] splitted = readed.split(",");
+		if(splitted[0].endsWith(".xml")){
+			if(ExperimentType.valueOf(readed.split(",")[1]) != ExperimentType.TEST) {
+				if(splitted.length > 7){
+					exp = new Experiment(new SoapXmlWorkload(new File(prefManager.getPreference("WORKLOAD_FOLDER") + "/" + splitted[0]), prefManager), ExperimentType.FAULTY, dbManager, Integer.parseInt(splitted[2]), parseFailures(readed), Integer.parseInt(splitted[3]), Integer.parseInt(splitted[4]));
+				} else exp = new Experiment(new SoapXmlWorkload(new File(prefManager.getPreference("WORKLOAD_FOLDER") + "/" + splitted[0]), prefManager), ExperimentType.GOLDEN, dbManager, Integer.parseInt(splitted[2]), null, Integer.parseInt(splitted[3]), Integer.parseInt(splitted[4]));
+				if(!exp.canExecute()){
+					for(Experiment newExp : exp.getNeededTests(availableWorkloads, Integer.parseInt(prefManager.getPreference("TEST_ITERATIONS")), Integer.parseInt(splitted[5]), Integer.parseInt(splitted[6]))){
+						if(!isInTestList(newExp))
+							testList.add(newExp);
+					}
+				}
+				expList.add(exp);
+				AppLogger.logInfo(getClass(), "Readed '"+ exp.getExpType().toString() + "' experiment: " + exp.getWorkload().getName());
+			} else {} // TODO
+		}
+		System.out.print(".");
 	}
 	
 	private boolean isInTestList(Experiment newExp) {
@@ -140,15 +142,8 @@ public class MasterManager {
 		}
 		return failMap;
 	}
-
-	private boolean setupCampaign() throws IOException {
-		long beforeMillis;
-		LinkedList<Object> response;
-		cManager.send(new Object[]{MessageType.SETUP_SUT, "LiferaySUT"});
-		cManager.waitForConfirm();
-		cManager.send(MessageType.START_CAMPAIGN);
-		beforeMillis = System.currentTimeMillis();
-		response = cManager.receive();
+	
+	private boolean checkNTP(LinkedList<Object> response, long beforeMillis){
 		if(((MessageType)response.get(0)).equals(MessageType.OK)){
 			if(response.size() == 2){
 				if(((Long)response.get(1))/1000 >= beforeMillis/1000 && ((Long)response.get(1))/1000 <= System.currentTimeMillis()/1000){
@@ -161,12 +156,22 @@ public class MasterManager {
 			} else {
 				AppLogger.logInfo(getClass(), "Unable to check NTP clock alignment");
 				return true;
-			}
-			
+			}			
 		} else {
 			AppLogger.logError(getClass(), "WrongResponseException", "Unable to initialize campaign: wrong response");
 			return false;
 		}
+	}
+
+	private boolean setupCampaign() throws IOException {
+		long beforeMillis;
+		LinkedList<Object> response;
+		cManager.send(new Object[]{MessageType.SETUP_SUT, "LiferaySUT"});
+		cManager.waitForConfirm();
+		cManager.send(MessageType.START_CAMPAIGN);
+		beforeMillis = System.currentTimeMillis();
+		response = cManager.receive();
+		return checkNTP(response, beforeMillis);
 	}
 	
 	private void shutdownCampaign() throws IOException {
@@ -175,23 +180,21 @@ public class MasterManager {
 	}
 	
 	public void startExperimentalCampaign() throws IOException {
-		int i = 1;
 		if(setupCampaign()){
-			for(Experiment currentTest : testList){
-				AppLogger.logInfo(getClass(), "Executing test " + i + "/" + testList.size() + ": " + currentTest.getExpType() + "Repeated " + currentTest.getIterations() + " times");
-				currentTest.executeExperiment(cManager);
-				currentTest = null;
-				i++;
-			}
-			i = 1;
-			for(Experiment currentExp : expList){
-				AppLogger.logInfo(getClass(), "Executing experiment " + i + "/" + expList.size() + ": " + currentExp.getExpType() + "Repeated " + currentExp.getIterations() + " times");
-				currentExp.executeExperiment(cManager);
-				currentExp = null;
-				i++;
-			}
+			executeExperiments(testList, "test");
+			executeExperiments(expList, "experiment");
 		}
 		shutdownCampaign();
+	}
+	
+	private void executeExperiments(LinkedList<Experiment> currentList, String tag){
+		int i = 1;
+		for(Experiment currentExp : expList){
+			AppLogger.logInfo(getClass(), "Executing " + tag + " " + i + "/" + expList.size() + ": " + currentExp.getExpType() + "Repeated " + currentExp.getIterations() + " times");
+			currentExp.executeExperiment(cManager);
+			currentExp = null;
+			i++;
+		}
 	}
 	
 	public void flush() throws SQLException, IOException {
