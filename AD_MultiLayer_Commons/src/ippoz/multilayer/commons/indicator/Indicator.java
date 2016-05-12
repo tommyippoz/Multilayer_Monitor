@@ -11,7 +11,7 @@ import ippoz.multilayer.commons.layers.LayerType;
  *
  * @author Tommy
  */
-public class Indicator {
+public class Indicator implements Comparable<Indicator>{
 	
 	/** The indicator name. */
 	private String indicatorName;
@@ -61,6 +61,11 @@ public class Indicator {
 	 */
 	public LayerType getLayer(){
 		return indicatorLayer;
+	}
+
+	@Override
+	public int compareTo(Indicator other) {
+		return indicatorName.compareTo(other.getName());
 	}
 
 }

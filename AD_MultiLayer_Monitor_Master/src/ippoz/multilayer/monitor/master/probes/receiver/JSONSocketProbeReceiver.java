@@ -4,11 +4,11 @@
 package ippoz.multilayer.monitor.master.probes.receiver;
 
 import ippoz.multilayer.commons.indicator.Indicator;
-import ippoz.multilayer.monitor.layers.LayerType;
+import ippoz.multilayer.commons.layers.LayerType;
+import ippoz.multilayer.commons.support.AppLogger;
 import ippoz.multilayer.monitor.master.observation.Observation;
 import ippoz.multilayer.monitor.master.observation.ObservationCollector;
 import ippoz.multilayer.monitor.master.performance.ExperimentTiming;
-import ippoz.multilayer.monitor.support.AppLogger;
 
 import java.io.IOException;
 import java.io.InputStream;

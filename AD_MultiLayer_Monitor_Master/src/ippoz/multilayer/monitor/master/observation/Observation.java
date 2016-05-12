@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.HashMap;
 
 import ippoz.multilayer.commons.indicator.Indicator;
-import ippoz.multilayer.monitor.support.AppLogger;
+import ippoz.multilayer.commons.support.AppLogger;
 
 /**
  * @author Tommy
