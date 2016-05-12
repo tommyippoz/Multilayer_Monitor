@@ -6,6 +6,7 @@ package ippoz.multilayer.monitor.master.observation;
 import java.util.Date;
 import java.util.HashMap;
 
+import ippoz.multilayer.commons.indicator.Indicator;
 import ippoz.multilayer.monitor.support.AppLogger;
 
 /**

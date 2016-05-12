@@ -10,15 +10,18 @@ import java.sql.SQLException;
 import ippoz.multilayer.monitor.support.AppLogger;
 import ippoz.multilayer.monitor.support.PreferencesManager;
 
-
 /**
- * @author Tommy
+ * The Class ExperimentMaster.
+ * The main class of the master of the experiments. This is hosted on a machine that is not the observed one.
  *
+ * @author Tommy
  */
 public class ExperimentMaster {
 	
 	/**
-	 * @param args
+	 * The main method.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		PreferencesManager masterPreferences;

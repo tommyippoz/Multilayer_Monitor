@@ -3,12 +3,12 @@
  */
 package ippoz.multilayer.monitor.master.database;
 
+import ippoz.multilayer.commons.indicator.Indicator;
 import ippoz.multilayer.monitor.layers.LayerType;
 import ippoz.multilayer.monitor.master.experiment.ExperimentType;
 import ippoz.multilayer.monitor.master.experiment.Failure;
 import ippoz.multilayer.monitor.master.experiment.Invocation;
 import ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment;
-import ippoz.multilayer.monitor.master.observation.Indicator;
 import ippoz.multilayer.monitor.master.observation.Observation;
 import ippoz.multilayer.monitor.master.observation.ObservationCollector;
 import ippoz.multilayer.monitor.master.performance.ExperimentTiming;

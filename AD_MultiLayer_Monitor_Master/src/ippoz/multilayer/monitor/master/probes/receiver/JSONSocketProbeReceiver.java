@@ -3,8 +3,8 @@
  */
 package ippoz.multilayer.monitor.master.probes.receiver;
 
+import ippoz.multilayer.commons.indicator.Indicator;
 import ippoz.multilayer.monitor.layers.LayerType;
-import ippoz.multilayer.monitor.master.observation.Indicator;
 import ippoz.multilayer.monitor.master.observation.Observation;
 import ippoz.multilayer.monitor.master.observation.ObservationCollector;
 import ippoz.multilayer.monitor.master.performance.ExperimentTiming;

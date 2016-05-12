@@ -23,33 +23,65 @@ import ippoz.multilayer.monitor.support.AppLogger;
 import ippoz.multilayer.monitor.support.PreferencesManager;
 
 /**
- * @author Tommy
+ * The Class MasterManager.
  *
+ * @author Tommy
  */
 public class MasterManager {
 	
+	/** The db manager. */
 	private DatabaseManager dbManager;
+	
+	/** The c manager. */
 	private CommunicationManager cManager;
+	
+	/** The pref manager. */
 	private PreferencesManager prefManager;
+	
+	/** The exp list. */
 	private LinkedList<Experiment> expList;
+	
+	/** The test list. */
 	private LinkedList<Experiment> testList;
+	
+	/** The available workloads. */
 	private LinkedList<Workload> availableWorkloads;
 	
+	/**
+	 * Instantiates a new master manager.
+	 *
+	 * @param prefFile the pref file
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public MasterManager(File prefFile) throws IOException {
 		this(new PreferencesManager(prefFile));
 	}
 	
+	/**
+	 * Instantiates a new master manager.
+	 *
+	 * @param prefManager the pref manager
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public MasterManager(PreferencesManager prefManager) throws IOException {
 		this.prefManager = prefManager;
 		dbManager = new DatabaseManager("C:\\Program Files\\MySQL\\MySQL Server 5.6", "experiment", false);
 		cManager = new CommunicationManager(prefManager.getPreference("SLAVE_IP_ADDRESS"), Integer.parseInt(prefManager.getPreference("OUT_PORT")), Integer.parseInt(prefManager.getPreference("IN_PORT")));
 	}
 	
+	/**
+	 * Setup environment.
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public void setupEnvironment() throws IOException {
 		readWorkloads();
 		setupExperiments();
 	}
 	
+	/**
+	 * Read workloads.
+	 */
 	private void readWorkloads(){
 		Workload currentWorkload;
 		availableWorkloads = new LinkedList<Workload>();
@@ -71,6 +103,9 @@ public class MasterManager {
 		System.out.println(" Available workloads: " + availableWorkloads.size());
 	}
 	
+	/**
+	 * Setup experiments.
+	 */
 	private void setupExperiments(){
 		File expFile = null;
 		BufferedReader reader = null;
@@ -92,6 +127,11 @@ public class MasterManager {
 		
 	}
 	
+	/**
+	 * Parses the experiment.
+	 *
+	 * @param readed the readed
+	 */
 	private void parseExperiment(String readed){
 		Experiment exp;
 		String[] splitted = readed.split(",");
@@ -113,6 +153,12 @@ public class MasterManager {
 		System.out.print(".");
 	}
 	
+	/**
+	 * Checks if is in test list.
+	 *
+	 * @param newExp the new exp
+	 * @return true, if is in test list
+	 */
 	private boolean isInTestList(Experiment newExp) {
 		if(newExp.getExpType() == ExperimentType.TEST){
 			for(Experiment exp : testList){
@@ -123,6 +169,12 @@ public class MasterManager {
 		return false;
 	}
 
+	/**
+	 * Parses the failures.
+	 *
+	 * @param readed the readed
+	 * @return the hash map
+	 */
 	private HashMap<Failure, Long> parseFailures(String readed) {
 		String[] splitted = readed.split(",");
 		String[] failureData;
@@ -143,6 +195,13 @@ public class MasterManager {
 		return failMap;
 	}
 	
+	/**
+	 * Check ntp.
+	 *
+	 * @param response the response
+	 * @param beforeMillis the before millis
+	 * @return true, if successful
+	 */
 	private boolean checkNTP(LinkedList<Object> response, long beforeMillis){
 		if(((MessageType)response.get(0)).equals(MessageType.OK)){
 			if(response.size() == 2){
@@ -163,6 +222,12 @@ public class MasterManager {
 		}
 	}
 
+	/**
+	 * Setup campaign.
+	 *
+	 * @return true, if successful
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	private boolean setupCampaign() throws IOException {
 		long beforeMillis;
 		LinkedList<Object> response;
@@ -174,11 +239,21 @@ public class MasterManager {
 		return checkNTP(response, beforeMillis);
 	}
 	
+	/**
+	 * Shutdown campaign.
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	private void shutdownCampaign() throws IOException {
 		cManager.send(MessageType.END_CAMPAIGN);
 		cManager.waitForConfirm();
 	}
 	
+	/**
+	 * Start experimental campaign.
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public void startExperimentalCampaign() throws IOException {
 		if(setupCampaign()){
 			executeExperiments(testList, "test");
@@ -187,6 +262,12 @@ public class MasterManager {
 		shutdownCampaign();
 	}
 	
+	/**
+	 * Execute experiments.
+	 *
+	 * @param currentList the current list
+	 * @param tag the tag
+	 */
 	private void executeExperiments(LinkedList<Experiment> currentList, String tag){
 		int i = 1;
 		for(Experiment currentExp : expList){
@@ -197,6 +278,12 @@ public class MasterManager {
 		}
 	}
 	
+	/**
+	 * Flush.
+	 *
+	 * @throws SQLException the SQL exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public void flush() throws SQLException, IOException {
 		dbManager.flush();
 		cManager.flush();
