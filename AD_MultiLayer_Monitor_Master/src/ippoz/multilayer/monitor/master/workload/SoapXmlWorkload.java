@@ -19,21 +19,43 @@ import com.resiltech.testing_box.functional_tester.configuration.instructions.Ca
 import com.resiltech.testing_box.functional_tester.runner.FunctionalTestRunner;
 
 /**
- * @author Tommy
+ * The Class SoapXmlWorkload.
+ * Defines a SOAP workload defined in an xml file.
  *
+ * @author Tommy
  */
 public class SoapXmlWorkload extends FileWorkload {
 	
+	/** The Constant SERVICE_NAME_TAG. */
 	private static final String SERVICE_NAME_TAG = "SERVICE_NAME";
+	
+	/** The Constant METHOD_NAME_TAG. */
 	private static final String METHOD_NAME_TAG = "METHOD_NAME";
+	
+	/** The Constant START_TIME_TAG. */
 	private static final String START_TIME_TAG = "START_TIME";
+	
+	/** The Constant END_TIME_TAG. */
 	private static final String END_TIME_TAG = "END_TIME";
+	
+	/** The Constant RESPONSE_CODE. */
 	private static final String RESPONSE_CODE = "RESPONSE_CODE";
 	
+	/** The isRunning flag. */
 	private boolean isRunning;
+	
+	/** The preferences manager. */
 	private PreferencesManager preferences;
+	
+	/** The SOAP functional tester. */
 	private FunctionalTestRunner soapTester;
 
+	/**
+	 * Instantiates a new soap xml workload.
+	 *
+	 * @param file the xml file
+	 * @param preferences the preferences manager
+	 */
 	public SoapXmlWorkload(File file, PreferencesManager preferences) {
 		super(file);
 		this.preferences = preferences;
@@ -41,13 +63,17 @@ public class SoapXmlWorkload extends FileWorkload {
 		isRunning = false;
 	}
 
+	/* (non-Javadoc)
+	 * @see ippoz.multilayer.monitor.master.workload.Workload#cloneWorkload()
+	 */
 	@Override
 	public Workload cloneWorkload() {
 		return new SoapXmlWorkload(workloadFile, preferences);
 	}
 
-
-
+	/* (non-Javadoc)
+	 * @see ippoz.multilayer.monitor.master.workload.Workload#usedServices()
+	 */
 	@Override
 	public LinkedList<Service> usedServices() {
 		RemoteService newService;
@@ -64,7 +90,14 @@ public class SoapXmlWorkload extends FileWorkload {
 		return servicesList;
 	}
 	
-	private boolean existsIn(Service service, LinkedList<Service> serviceList){
+	/**
+	 * Checks if the service exists in the list.
+	 *
+	 * @param service the service
+	 * @param serviceList the service list
+	 * @return true, if the service exists in the list
+	 */
+	private static boolean existsIn(Service service, LinkedList<Service> serviceList){
 		for(Service currentService : serviceList){
 			if(service.compareTo(currentService) == 0)
 				return true;
@@ -72,11 +105,17 @@ public class SoapXmlWorkload extends FileWorkload {
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see ippoz.multilayer.monitor.master.workload.Workload#isRunning()
+	 */
 	@Override
 	public boolean isRunning() {
 		return isRunning;
 	}
 
+	/* (non-Javadoc)
+	 * @see ippoz.multilayer.monitor.master.workload.Workload#runWorkload(boolean)
+	 */
 	@Override
 	public void runWorkload(boolean seeOutput) {
 		isRunning = true;
@@ -84,6 +123,9 @@ public class SoapXmlWorkload extends FileWorkload {
 		isRunning = false;
 	}
 
+	/* (non-Javadoc)
+	 * @see ippoz.multilayer.monitor.master.workload.Workload#executedInvocations()
+	 */
 	@Override
 	public LinkedList<Invocation> executedInvocations() {
 		LinkedList<Invocation> invList = new LinkedList<Invocation>();
@@ -93,6 +135,13 @@ public class SoapXmlWorkload extends FileWorkload {
 		return invList;
 	}
 	
+	/**
+	 * Gets the service by name.
+	 *
+	 * @param serviceName the service name
+	 * @param servicesList the services list
+	 * @return the service by name
+	 */
 	public static Service getServiceByName(String serviceName, LinkedList<Service> servicesList){
 		for(Service service : servicesList){
 			if(service.getName().equals(serviceName))
@@ -101,6 +150,9 @@ public class SoapXmlWorkload extends FileWorkload {
 		return null;
 	}
 
+	/* (non-Javadoc)
+	 * @see ippoz.multilayer.monitor.master.workload.Workload#flush()
+	 */
 	@Override
 	public void flush() {
 		preferences = null;
