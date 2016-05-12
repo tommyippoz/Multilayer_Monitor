@@ -24,24 +24,25 @@ import ippoz.multilayer.monitor.master.workload.Workload;
 
 /**
  * The Class MasterManager.
+ * Manager of the Master of the experiments.
  *
  * @author Tommy
  */
 public class MasterManager {
 	
-	/** The db manager. */
+	/** The database manager. */
 	private DatabaseManager dbManager;
 	
-	/** The c manager. */
+	/** The communication manager. */
 	private CommunicationManager cManager;
 	
-	/** The pref manager. */
+	/** The preference manager. */
 	private PreferencesManager prefManager;
 	
-	/** The exp list. */
+	/** The experiment list. */
 	private LinkedList<Experiment> expList;
 	
-	/** The test list. */
+	/** The test experiment list. */
 	private LinkedList<Experiment> testList;
 	
 	/** The available workloads. */
@@ -50,7 +51,7 @@ public class MasterManager {
 	/**
 	 * Instantiates a new master manager.
 	 *
-	 * @param prefFile the pref file
+	 * @param prefFile the preference file
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public MasterManager(File prefFile) throws IOException {
@@ -60,31 +61,33 @@ public class MasterManager {
 	/**
 	 * Instantiates a new master manager.
 	 *
-	 * @param prefManager the pref manager
+	 * @param prefManager the preference manager
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public MasterManager(PreferencesManager prefManager) throws IOException {
 		this.prefManager = prefManager;
-		dbManager = new DatabaseManager("C:\\Program Files\\MySQL\\MySQL Server 5.6", "experiment", false);
+		dbManager = new DatabaseManager("experiment", false);
 		cManager = new CommunicationManager(prefManager.getPreference("SLAVE_IP_ADDRESS"), Integer.parseInt(prefManager.getPreference("OUT_PORT")), Integer.parseInt(prefManager.getPreference("IN_PORT")));
 	}
 	
 	/**
-	 * Setup environment.
+	 * Setups the environment.
 	 *
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public void setupEnvironment() throws IOException {
-		readWorkloads();
+		availableWorkloads = readWorkloads();
 		setupExperiments();
 	}
 	
 	/**
-	 * Read workloads.
+	 * Reads all the available workloads.
+	 *
+	 * @return the list of workloads
 	 */
-	private void readWorkloads(){
+	private LinkedList<Workload> readWorkloads(){
 		Workload currentWorkload;
-		availableWorkloads = new LinkedList<Workload>();
+		LinkedList<Workload> workloads = new LinkedList<Workload>();
 		AppLogger.logOngoingInfo(getClass(), "Fetching workloads ");
 		for(File wFile : new File(prefManager.getPreference("WORKLOAD_FOLDER")).listFiles()){
 			currentWorkload = null;
@@ -93,18 +96,19 @@ public class MasterManager {
 					currentWorkload = new SoapXmlWorkload(wFile, null);
 				}
 				if(currentWorkload != null){
-					availableWorkloads.add(currentWorkload);
+					workloads.add(currentWorkload);
 					System.out.print(".");
 				} 
 			} catch(Exception ex){
 				AppLogger.logError(getClass(), ex.getClass().getName(), "Unable to load workload: " + wFile.getName());
 			}	
 		}
-		System.out.println(" Available workloads: " + availableWorkloads.size());
+		System.out.println(" Available workloads: " + workloads.size());
+		return workloads;
 	}
 	
 	/**
-	 * Setup experiments.
+	 * Reads the test and the golden/faulty experiments.
 	 */
 	private void setupExperiments(){
 		File expFile = null;
@@ -128,9 +132,9 @@ public class MasterManager {
 	}
 	
 	/**
-	 * Parses the experiment.
+	 * Parses the experiment from a text file row.
 	 *
-	 * @param readed the readed
+	 * @param readed the read row of the text file (experiments separated by commas)
 	 */
 	private void parseExperiment(String readed){
 		Experiment exp;
@@ -154,15 +158,15 @@ public class MasterManager {
 	}
 	
 	/**
-	 * Checks if is in test list.
+	 * Checks if the experiment is in test list.
 	 *
-	 * @param newExp the new exp
+	 * @param newExp the experiment
 	 * @return true, if is in test list
 	 */
-	private boolean isInTestList(Experiment newExp) {
-		if(newExp.getExpType() == ExperimentType.TEST){
+	private boolean isInTestList(Experiment expToCheck) {
+		if(expToCheck.getExpType() == ExperimentType.TEST){
 			for(Experiment exp : testList){
-				if(exp.getExpType() == ExperimentType.TEST && exp.getWorkload().getName().equals(newExp.getWorkload().getName()))
+				if(exp.getExpType() == ExperimentType.TEST && exp.getWorkload().getName().equals(expToCheck.getWorkload().getName()))
 					return true;
 			}
 		}
@@ -170,9 +174,10 @@ public class MasterManager {
 	}
 
 	/**
-	 * Parses the failures.
+	 * Parses the failures from a portion of text file row.
+	 * Failures are separated by commas, fields are separated by semicolons.
 	 *
-	 * @param readed the readed
+	 * @param readed the read portion of file row
 	 * @return the hash map
 	 */
 	private HashMap<Failure, Long> parseFailures(String readed) {
@@ -196,11 +201,11 @@ public class MasterManager {
 	}
 	
 	/**
-	 * Check ntp.
+	 * Checks the NTP synchronisation. If the difference is over 1 second, the check fails.
 	 *
 	 * @param response the response
-	 * @param beforeMillis the before millis
-	 * @return true, if successful
+	 * @param beforeMillis the machine time milliseconds
+	 * @return true, if the clocks are synchronised
 	 */
 	private boolean checkNTP(LinkedList<Object> response, long beforeMillis){
 		if(((MessageType)response.get(0)).equals(MessageType.OK)){
@@ -223,9 +228,9 @@ public class MasterManager {
 	}
 
 	/**
-	 * Setup campaign.
+	 * Setups the experimental campaign.
 	 *
-	 * @return true, if successful
+	 * @return true, if the setup has success
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	private boolean setupCampaign() throws IOException {
@@ -240,7 +245,7 @@ public class MasterManager {
 	}
 	
 	/**
-	 * Shutdown campaign.
+	 * Shutdowns the experimental campaign.
 	 *
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
@@ -250,7 +255,7 @@ public class MasterManager {
 	}
 	
 	/**
-	 * Start experimental campaign.
+	 * Starts the experimental campaign.
 	 *
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
@@ -263,10 +268,10 @@ public class MasterManager {
 	}
 	
 	/**
-	 * Execute experiments.
+	 * Execute a list of experiments.
 	 *
-	 * @param currentList the current list
-	 * @param tag the tag
+	 * @param currentList the current list of experiments
+	 * @param tag the experiments' tag
 	 */
 	private void executeExperiments(LinkedList<Experiment> currentList, String tag){
 		int i = 1;
@@ -279,7 +284,7 @@ public class MasterManager {
 	}
 	
 	/**
-	 * Flush.
+	 * Flushes the manager (database and communication managers).
 	 *
 	 * @throws SQLException the SQL exception
 	 * @throws IOException Signals that an I/O exception has occurred.

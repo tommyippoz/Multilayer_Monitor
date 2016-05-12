@@ -41,7 +41,7 @@ public class DatabaseManager {
 	private HashMap<String, String> indicators;
 	private HashMap<String, String> performanceTypes;
 	
-	public DatabaseManager(String sqlDir, String dbName, boolean create){
+	public DatabaseManager(String dbName, boolean create){
 		try {
 			connector = new DatabaseConnector(dbName, "root", "resiltech", create);
 			updateInfo();
