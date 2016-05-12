@@ -107,6 +107,10 @@ public class DatabaseManager {
 		obCollector.setRunId(DatabaseConnector.getFirstValueByTag(connector.executeCustomQuery(null, "select max(run_id) as maxrun from run"), "maxrun"));
 	}
 	
+	public void undoExperiment() {
+		connector.update("delete from run where run_id = (select max(run_id) from run)");
+	}
+	
 	private String getWorkloadID(Workload workload, boolean insertFlag) {
 		String sid;
 		int i = 1;

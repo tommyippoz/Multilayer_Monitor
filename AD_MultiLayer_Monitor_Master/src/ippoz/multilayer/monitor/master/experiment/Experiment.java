@@ -33,14 +33,18 @@ public class Experiment {
 	private ExperimentType expType;
 	protected DatabaseManager dbManager;
 	private int iterations;
+	private int minObs;
+	private int maxObs;
 	private HashMap<Failure, Long> injections;
 	
-	public Experiment(Workload workload, ExperimentType expType, DatabaseManager dbManager, int iterations, HashMap<Failure, Long> injections) {
+	public Experiment(Workload workload, ExperimentType expType, DatabaseManager dbManager, int iterations, HashMap<Failure, Long> injections, int minObs, int maxObs) {
 		this.workload = workload;
 		this.expType = expType;
 		this.dbManager = dbManager;
 		this.iterations = iterations;
 		this.injections = injections;
+		this.minObs = minObs;
+		this.maxObs = maxObs;
 		checkDbInfo();
 	}
 
@@ -72,11 +76,11 @@ public class Experiment {
 		return true;
 	}
 	
-	public LinkedList<Experiment> getNeededTests(LinkedList<Workload> availableWorkloads, int testIterations){
+	public LinkedList<Experiment> getNeededTests(LinkedList<Workload> availableWorkloads, int testIterations, int testMinObs, int testMaxObs){
 		LinkedList<Experiment> tests = new LinkedList<Experiment>();
 		for(Service service : workload.usedServices()){
 			if(service.needTest(dbManager)) {
-				tests.add(new ServiceTestExperiment(service, availableWorkloads, dbManager, testIterations));
+				tests.add(new ServiceTestExperiment(service, availableWorkloads, dbManager, testIterations, testMinObs, testMaxObs));
 				if(tests.getLast().getWorkload() == null)
 					tests.removeLast();
 			}
@@ -102,14 +106,15 @@ public class Experiment {
 		Workload baseWorkload;
 		try {
 			for(int expRun=1; expRun<=iterations; expRun++) {
-				baseWorkload = workload.cloneWorkload();
-				obCollector = new ObservationCollector(dbManager);
-				prManager = new ProbeReceiverManager();
-				AppLogger.logInfo(getClass(), expType + " Experiment started: Run " + expRun + "/" + iterations);
-				setupProbes(obCollector, prManager, cManager);
-				startExperiment(baseWorkload, cManager, obCollector);
-				executeWorkload(baseWorkload, obCollector, prManager);
-				endExperiment(baseWorkload, cManager, obCollector, prManager);
+				do {
+					baseWorkload = workload.cloneWorkload();
+					obCollector = new ObservationCollector(dbManager, minObs, maxObs);
+					prManager = new ProbeReceiverManager();
+					AppLogger.logInfo(getClass(), expType + " Experiment started: Run " + expRun + "/" + iterations);
+					setupProbes(obCollector, prManager, cManager);
+					startExperiment(baseWorkload, cManager, obCollector);
+					executeWorkload(baseWorkload, obCollector, prManager);
+				} while(!endExperiment(baseWorkload, cManager, obCollector, prManager));
 				baseWorkload.flush();
 			}
 		} catch(Exception ex){
@@ -146,7 +151,8 @@ public class Experiment {
 		Thread.sleep(2000);
 	}
 	
-	private void endExperiment(Workload baseWorkload, CommunicationManager cManager, ObservationCollector obCollector, ProbeReceiverManager prManager) throws IOException {
+	private boolean endExperiment(Workload baseWorkload, CommunicationManager cManager, ObservationCollector obCollector, ProbeReceiverManager prManager) throws IOException {
+		boolean validFlag;
 		cManager.send(MessageType.END_EXPERIMENT);
 		cManager.waitFor(MessageType.CHECK_PROBE);
 		prManager.closeReceivers();
@@ -154,13 +160,20 @@ public class Experiment {
 		parseReceivedArray(cManager.receive());
 		System.out.println("DONE");
 		AppLogger.logInfo(getClass(), "Collecting Data on Database .....");
-		obCollector.storeObservations();
-		if(injections != null)
-			dbManager.storeInjActivations(injections.keySet(), obCollector.getRunId());
-		dbManager.logExperimentInfo(baseWorkload);
-		dbManager.saveMonitorPerformance(obCollector.getRunId());
+		validFlag = obCollector.isValid();
+		if(validFlag){
+			obCollector.storeObservations();
+			if(injections != null)
+				dbManager.storeInjActivations(injections.keySet(), obCollector.getRunId());
+			dbManager.logExperimentInfo(baseWorkload);
+			dbManager.saveMonitorPerformance(obCollector.getRunId());
+		} else {
+			dbManager.undoExperiment();
+			AppLogger.logInfo(getClass(), "Experiment needs to be repeated: collected " + obCollector.getObservationNumber() + " observations");
+		}
 		obCollector.flush();
 		prManager.closeReceivers();
+		return validFlag;
 	}
 
 	private void parseReceivedArray(Collection<Object> received) {

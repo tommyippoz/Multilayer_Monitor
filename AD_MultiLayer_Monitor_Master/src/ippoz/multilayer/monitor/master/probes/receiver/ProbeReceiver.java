@@ -3,7 +3,6 @@
  */
 package ippoz.multilayer.monitor.master.probes.receiver;
 
-import java.io.IOException;
 import java.io.InputStream;
 
 import ippoz.multilayer.monitor.layers.LayerType;

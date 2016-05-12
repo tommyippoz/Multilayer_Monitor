@@ -16,15 +16,22 @@ public class ObservationCollector {
 	private DatabaseManager dbManager;
 	private TreeMap<String, Observation> obsMap;
 	private String runId;
+	private int minObs;
+	private int maxObs;
 	
-	public ObservationCollector(DatabaseManager dbManager){
+	public ObservationCollector(DatabaseManager dbManager, int minObs, int maxObs){
 		this.dbManager = dbManager;
+		this.minObs = minObs;
+		this.maxObs = maxObs;
 		obsMap = new TreeMap<String, Observation>();
+	}
+	
+	public boolean isValid(){
+		return obsMap.size() >= minObs && obsMap.size() <= maxObs;
 	}
 
 	public synchronized boolean addObservation(Observation obs) {
 		if(obs != null && obs.size() > 0){
-			//AppLogger.logInfo(getClass(), "Received Observation (" + obs.size() + " " + obs.getLayerType() + " indicators)");
 			if(obsMap.containsKey(obs.getTimestamp())){
 				obsMap.get(obs.getTimestamp()).mergeWith(obs);
 			} else obsMap.put(obs.getTimestamp(), obs);
@@ -57,6 +64,10 @@ public class ObservationCollector {
 
 	public String getRunId() {
 		return runId;
+	}
+
+	public int getObservationNumber() {
+		return obsMap.size();
 	}
 
 }

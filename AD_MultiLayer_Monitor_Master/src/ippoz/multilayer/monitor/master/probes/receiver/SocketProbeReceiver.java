@@ -76,7 +76,7 @@ public abstract class SocketProbeReceiver extends ProbeReceiver{
 	}
 	
 	public void readNonContinuous() throws IOException{
-		int nObs = 0;
+		//int nObs = 0;
 		Socket clientSocket = null;
 		InputStream inStream = null;
 		try {
@@ -84,8 +84,9 @@ public abstract class SocketProbeReceiver extends ProbeReceiver{
 				//AppLogger.logInfo(getClass(), "Receiver ready on port " + ssocket.getLocalPort());
 				clientSocket = ssocket.accept();                       
 		        inStream = clientSocket.getInputStream();
-		        if(collector.addObservation(parseObservation(inStream)))
-            		nObs++;
+		        if(collector.addObservation(parseObservation(inStream))){
+            		// nObs++;
+		        }
             	inStream.close();
             	clientSocket.close();
             } 

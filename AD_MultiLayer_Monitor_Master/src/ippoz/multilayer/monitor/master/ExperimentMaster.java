@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import ippoz.multilayer.monitor.support.AppLogger;
 import ippoz.multilayer.monitor.support.PreferencesManager;
 
 
@@ -15,8 +16,6 @@ import ippoz.multilayer.monitor.support.PreferencesManager;
  *
  */
 public class ExperimentMaster {
-
-	// puzzi
 	
 	/**
 	 * @param args
@@ -32,11 +31,9 @@ public class ExperimentMaster {
 			master.flush();
 			System.exit(0);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			AppLogger.logException(ExperimentMaster.class, e, "Unhandled IOException");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			AppLogger.logException(ExperimentMaster.class, e, "Unhandled SQLException");
 		}
 	}
 

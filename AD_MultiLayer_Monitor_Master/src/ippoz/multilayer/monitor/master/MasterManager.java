@@ -17,7 +17,6 @@ import ippoz.multilayer.monitor.master.database.DatabaseManager;
 import ippoz.multilayer.monitor.master.experiment.Experiment;
 import ippoz.multilayer.monitor.master.experiment.ExperimentType;
 import ippoz.multilayer.monitor.master.experiment.Failure;
-import ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment;
 import ippoz.multilayer.monitor.master.workload.SoapXmlWorkload;
 import ippoz.multilayer.monitor.master.workload.Workload;
 import ippoz.multilayer.monitor.support.AppLogger;
@@ -89,11 +88,11 @@ public class MasterManager {
 					splitted = readed.split(",");
 					if(splitted[0].endsWith(".xml")){
 						if(ExperimentType.valueOf(readed.split(",")[1]) != ExperimentType.TEST) {
-							if(readed.split(",").length > 3){
-								exp = new Experiment(new SoapXmlWorkload(new File(prefManager.getPreference("WORKLOAD_FOLDER") + "/" + splitted[0]), prefManager), ExperimentType.FAULTY, dbManager, Integer.parseInt(splitted[2]), parseFailures(readed));
-							} else exp = new Experiment(new SoapXmlWorkload(new File(prefManager.getPreference("WORKLOAD_FOLDER") + "/" + splitted[0]), prefManager), ExperimentType.GOLDEN, dbManager, Integer.parseInt(splitted[2]), null);
+							if(splitted.length > 7){
+								exp = new Experiment(new SoapXmlWorkload(new File(prefManager.getPreference("WORKLOAD_FOLDER") + "/" + splitted[0]), prefManager), ExperimentType.FAULTY, dbManager, Integer.parseInt(splitted[2]), parseFailures(readed), Integer.parseInt(splitted[3]), Integer.parseInt(splitted[4]));
+							} else exp = new Experiment(new SoapXmlWorkload(new File(prefManager.getPreference("WORKLOAD_FOLDER") + "/" + splitted[0]), prefManager), ExperimentType.GOLDEN, dbManager, Integer.parseInt(splitted[2]), null, Integer.parseInt(splitted[3]), Integer.parseInt(splitted[4]));
 							if(!exp.canExecute()){
-								for(Experiment newExp : exp.getNeededTests(availableWorkloads, Integer.parseInt(prefManager.getPreference("TEST_ITERATIONS")))){
+								for(Experiment newExp : exp.getNeededTests(availableWorkloads, Integer.parseInt(prefManager.getPreference("TEST_ITERATIONS")), Integer.parseInt(splitted[5]), Integer.parseInt(splitted[6]))){
 									if(!isInTestList(newExp))
 										testList.add(newExp);
 								}
@@ -127,7 +126,7 @@ public class MasterManager {
 		String[] failureData;
 		HashMap<Failure, Long> failMap = new HashMap<Failure, Long>();
 		try {
-			for(int i=3;i<splitted.length;i++){
+			for(int i=7;i<splitted.length;i++){
 				if(splitted[i].contains("#")) {
 					failureData = splitted[i].split("#")[0].trim().split(";");
 					failMap.put(new Failure(failureData[0], failureData[1], splitted[i].trim().substring(splitted[i].trim().indexOf("#")+1)), Long.valueOf(failureData[2]));

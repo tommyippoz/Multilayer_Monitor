@@ -3,7 +3,6 @@
  */
 package ippoz.multilayer.monitor.master.experiment;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -37,8 +36,8 @@ public class ServiceTestExperiment extends Experiment {
 	
 	private Service service;
 	
-	public ServiceTestExperiment(Service service, LinkedList<Workload> availableWorkloads, DatabaseManager dbManager, int iterations) {
-		super(findTestWorkload(service, availableWorkloads), ExperimentType.TEST, dbManager, iterations, null);
+	public ServiceTestExperiment(Service service, LinkedList<Workload> availableWorkloads, DatabaseManager dbManager, int iterations, int minObs, int maxObs) {
+		super(findTestWorkload(service, availableWorkloads), ExperimentType.TEST, dbManager, iterations, null, minObs, maxObs);
 		this.service = service;
 	}
 	
