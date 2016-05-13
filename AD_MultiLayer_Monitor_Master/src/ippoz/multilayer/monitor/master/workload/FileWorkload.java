@@ -11,7 +11,7 @@ import java.io.File;
  *
  * @author Tommy
  */
-public abstract class FileWorkload implements Workload {
+public abstract class FileWorkload extends Workload {
 	
 	/** The workload file. */
 	protected File workloadFile;
@@ -19,9 +19,12 @@ public abstract class FileWorkload implements Workload {
 	/**
 	 * Instantiates a new file workload.
 	 *
-	 * @param file the file
+	 * @param file the file of the workload
+	 * @param minTime the minimum execution time
+	 * @param maxTime the maximum execution time
 	 */
-	public FileWorkload(File file){
+	public FileWorkload(File file, int minTime, int maxTime){
+		super(minTime, maxTime);
 		workloadFile = file;
 	}
 

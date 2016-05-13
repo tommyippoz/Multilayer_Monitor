@@ -88,12 +88,13 @@ public class MasterManager {
 	private LinkedList<Workload> readWorkloads(){
 		Workload currentWorkload;
 		LinkedList<Workload> workloads = new LinkedList<Workload>();
+		HashMap<String, HashMap<String, Integer>> workloadDetails = getWorkloadDetails(new File(prefManager.getPreference("WORKLOAD_DETAILS")));
 		AppLogger.logOngoingInfo(getClass(), "Fetching workloads ");
 		for(File wFile : new File(prefManager.getPreference("WORKLOAD_FOLDER")).listFiles()){
 			currentWorkload = null;
 			try {
 				if(wFile.getName().endsWith(".xml") && wFile.getName().toUpperCase().contains("WORKLOAD")){
-					currentWorkload = new SoapXmlWorkload(wFile, null);
+					currentWorkload = new SoapXmlWorkload(wFile, null, workloadDetails.get(wFile.getName()).get("MIN_TIME"), workloadDetails.get(wFile.getName()).get("MIN_TIME"));
 				}
 				if(currentWorkload != null){
 					workloads.add(currentWorkload);
@@ -107,6 +108,29 @@ public class MasterManager {
 		return workloads;
 	}
 	
+	private HashMap<String, HashMap<String, Integer>> getWorkloadDetails(File workloadDetailFile) {
+		String readed;
+		String[] splitted;
+		BufferedReader reader = null;
+		HashMap<String, HashMap<String, Integer>> wlDetails = new HashMap<String, HashMap<String, Integer>>();
+		try {
+			reader = new BufferedReader(new FileReader(workloadDetailFile));
+			while(reader.ready()){
+				readed = reader.readLine();
+				if(readed != null && readed.length() > 0 && !readed.startsWith("workload_name")){
+					splitted = readed.trim().split(",");
+					wlDetails.put(splitted[0], new HashMap<String, Integer>());
+					wlDetails.get(splitted[0]).put("MIN_TIME", Integer.parseInt(splitted[1]));
+					wlDetails.get(splitted[0]).put("MAX_TIME", Integer.parseInt(splitted[2]));
+				}
+			}
+			reader.close();	
+		} catch(IOException ex){
+			AppLogger.logException(getClass(), ex, "Unable to load experiments");
+		}
+		return wlDetails;
+	}
+
 	/**
 	 * Reads the test and the golden/faulty experiments.
 	 */
@@ -128,7 +152,6 @@ public class MasterManager {
 		} catch(IOException ex){
 			AppLogger.logException(getClass(), ex, "Unable to load experiments");
 		}
-		
 	}
 	
 	/**
@@ -141,11 +164,11 @@ public class MasterManager {
 		String[] splitted = readed.split(",");
 		if(splitted[0].endsWith(".xml")){
 			if(ExperimentType.valueOf(readed.split(",")[1]) != ExperimentType.TEST) {
-				if(splitted.length > 7){
-					exp = new Experiment(new SoapXmlWorkload(new File(prefManager.getPreference("WORKLOAD_FOLDER") + "/" + splitted[0]), prefManager), ExperimentType.FAULTY, dbManager, Integer.parseInt(splitted[2]), parseFailures(readed), Integer.parseInt(splitted[3]), Integer.parseInt(splitted[4]));
-				} else exp = new Experiment(new SoapXmlWorkload(new File(prefManager.getPreference("WORKLOAD_FOLDER") + "/" + splitted[0]), prefManager), ExperimentType.GOLDEN, dbManager, Integer.parseInt(splitted[2]), null, Integer.parseInt(splitted[3]), Integer.parseInt(splitted[4]));
+				if(splitted.length > 3){
+					exp = new Experiment(getWorkloadByName(splitted[0]), ExperimentType.FAULTY, dbManager, Integer.parseInt(splitted[2]), parseFailures(readed));
+				} else exp = new Experiment(getWorkloadByName(splitted[0]), ExperimentType.GOLDEN, dbManager, Integer.parseInt(splitted[2]), null);
 				if(!exp.canExecute()){
-					for(Experiment newExp : exp.getNeededTests(availableWorkloads, Integer.parseInt(prefManager.getPreference("TEST_ITERATIONS")), Integer.parseInt(splitted[5]), Integer.parseInt(splitted[6]))){
+					for(Experiment newExp : exp.getNeededTests(availableWorkloads, Integer.parseInt(prefManager.getPreference("TEST_ITERATIONS")))){
 						if(!isInTestList(newExp))
 							testList.add(newExp);
 					}
@@ -155,6 +178,20 @@ public class MasterManager {
 			} else {} // TODO
 		}
 		System.out.print(".");
+	}
+	
+	/**
+	 * Gets the workload by name.
+	 *
+	 * @param wName the workload name
+	 * @return the workload by name
+	 */
+	private Workload getWorkloadByName(String wName){
+		for(Workload workload : availableWorkloads){
+			if(workload.getName().toUpperCase().equals(wName.toUpperCase()))
+				return workload.cloneWorkload();
+		}
+		return null;
 	}
 	
 	/**

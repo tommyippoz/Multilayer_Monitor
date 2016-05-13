@@ -33,18 +33,14 @@ public class Experiment {
 	private ExperimentType expType;
 	protected DatabaseManager dbManager;
 	private int iterations;
-	private int minObs;
-	private int maxObs;
 	private HashMap<Failure, Long> injections;
 	
-	public Experiment(Workload workload, ExperimentType expType, DatabaseManager dbManager, int iterations, HashMap<Failure, Long> injections, int minObs, int maxObs) {
+	public Experiment(Workload workload, ExperimentType expType, DatabaseManager dbManager, int iterations, HashMap<Failure, Long> injections) {
 		this.workload = workload;
 		this.expType = expType;
 		this.dbManager = dbManager;
 		this.iterations = iterations;
 		this.injections = injections;
-		this.minObs = minObs;
-		this.maxObs = maxObs;
 		checkDbInfo();
 	}
 
@@ -76,11 +72,11 @@ public class Experiment {
 		return true;
 	}
 	
-	public LinkedList<Experiment> getNeededTests(LinkedList<Workload> availableWorkloads, int testIterations, int testMinObs, int testMaxObs){
+	public LinkedList<Experiment> getNeededTests(LinkedList<Workload> availableWorkloads, int testIterations){
 		LinkedList<Experiment> tests = new LinkedList<Experiment>();
 		for(Service service : workload.usedServices()){
 			if(service.needTest(dbManager)) {
-				tests.add(new ServiceTestExperiment(service, availableWorkloads, dbManager, testIterations, testMinObs, testMaxObs));
+				tests.add(new ServiceTestExperiment(service, availableWorkloads, dbManager, testIterations));
 				if(tests.getLast().getWorkload() == null)
 					tests.removeLast();
 			}
@@ -108,7 +104,7 @@ public class Experiment {
 			for(int expRun=1; expRun<=iterations; expRun++) {
 				do {
 					baseWorkload = workload.cloneWorkload();
-					obCollector = new ObservationCollector(dbManager, minObs, maxObs);
+					obCollector = new ObservationCollector(dbManager, workload.getMinExecutionTime(), workload.getMaxExecutionTime());
 					prManager = new ProbeReceiverManager();
 					AppLogger.logInfo(getClass(), expType + " Experiment started: Run " + expRun + "/" + iterations);
 					setupProbes(obCollector, prManager, cManager);

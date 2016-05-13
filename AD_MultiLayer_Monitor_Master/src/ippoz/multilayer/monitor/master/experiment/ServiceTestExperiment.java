@@ -44,8 +44,8 @@ public class ServiceTestExperiment extends Experiment {
 	
 	private Service service;
 	
-	public ServiceTestExperiment(Service service, LinkedList<Workload> availableWorkloads, DatabaseManager dbManager, int iterations, int minObs, int maxObs) {
-		super(findTestWorkload(service, availableWorkloads), ExperimentType.TEST, dbManager, iterations, null, minObs, maxObs);
+	public ServiceTestExperiment(Service service, LinkedList<Workload> availableWorkloads, DatabaseManager dbManager, int iterations) {
+		super(findTestWorkload(service, availableWorkloads), ExperimentType.TEST, dbManager, iterations, null);
 		this.service = service;
 	}
 	

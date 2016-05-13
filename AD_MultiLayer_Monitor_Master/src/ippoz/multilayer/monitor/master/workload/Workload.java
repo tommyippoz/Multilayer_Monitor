@@ -14,60 +14,95 @@ import java.util.LinkedList;
  *
  * @author Tommy
  */
-public interface Workload {
+public abstract class Workload {
+	
+	/** The minimum execution time of the workload. */
+	private int minTime;
+	
+	/** The maximum execution time of the workload. */
+	private int maxTime;
+	
+	/**
+	 * Instantiates a new workload.
+	 *
+	 * @param minTime the minimum execution time of the workload
+	 * @param maxTime the maximum execution time of the workload
+	 */
+	protected Workload(int minTime, int maxTime){
+		this.minTime = minTime;
+		this.maxTime = maxTime;
+	}
+
+	/**
+	 * Gets the minimum execution time of the workload.
+	 *
+	 * @return the minimum execution time of the workload
+	 */
+	public int getMinExecutionTime(){
+		return minTime;
+	}
+	
+	/**
+	 * Gets the maximum execution time of the workload.
+	 *
+	 * @return the maximum execution time of the workload
+	 */
+	public int getMaxExecutionTime(){
+		return maxTime;
+	}
 	
 	/**
 	 * Gets the name of the workload.
 	 *
 	 * @return the name of the workload
 	 */
-	public String getName();
+	public abstract String getName();
 	
 	/**
 	 * Checks if the workload is valid.
 	 *
 	 * @return true, if is valid
 	 */
-	public boolean isValid();
+	public abstract boolean isValid();
 	
 	/**
 	 * Services used by the workload.
 	 *
 	 * @return the list of services
 	 */
-	public LinkedList<Service> usedServices();
+	public abstract LinkedList<Service> usedServices();
 	
 	/**
 	 * Checks if the workload is running.
 	 *
 	 * @return true, if is running
 	 */
-	public boolean isRunning();
+	public abstract boolean isRunning();
 	
 	/**
 	 * Runs the workload.
 	 *
 	 * @param seeOutput flag that indicates if the output goes to the console
 	 */
-	public void runWorkload(boolean seeOutput);
+	public abstract void runWorkload(boolean seeOutput);
 	
 	/**
 	 * Executed invocations.
 	 *
 	 * @return the list of invocations
 	 */
-	public LinkedList<Invocation> executedInvocations();
+	public abstract LinkedList<Invocation> executedInvocations();
 	
 	/**
 	 * Clones workload.
 	 *
 	 * @return the cloned workload
 	 */
-	public Workload cloneWorkload();
+	public abstract Workload cloneWorkload();
 
 	/**
 	 * Flushes.
 	 */
-	public void flush();
+	public abstract void flush();
 	
 }

@@ -56,8 +56,8 @@ public class SoapXmlWorkload extends FileWorkload {
 	 * @param file the xml file
 	 * @param preferences the preferences manager
 	 */
-	public SoapXmlWorkload(File file, PreferencesManager preferences) {
-		super(file);
+	public SoapXmlWorkload(File file, PreferencesManager preferences, int minTime, int maxTime) {
+		super(file, minTime, maxTime);
 		this.preferences = preferences;
 		soapTester = new FunctionalTestRunner(file);
 		isRunning = false;
@@ -68,7 +68,7 @@ public class SoapXmlWorkload extends FileWorkload {
 	 */
 	@Override
 	public Workload cloneWorkload() {
-		return new SoapXmlWorkload(workloadFile, preferences);
+		return new SoapXmlWorkload(workloadFile, preferences, getMinExecutionTime(), getMaxExecutionTime());
 	}
 
 	/* (non-Javadoc)
