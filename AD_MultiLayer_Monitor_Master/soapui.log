@@ -1,0 +1,124 @@
+2016-05-13 16:16:59,323 WARN  [SoapUI] Missing folder [/home/tommaso/git/MultiLayer_Monitor/AD_MultiLayer_Monitor_Master/./ext] for external libraries
+2016-05-13 16:16:59,324 INFO  [DefaultSoapUICore] Creating new settings at [/home/tommaso/soapui-settings.xml]
+2016-05-13 16:17:02,573 INFO  [SchemaUtils] Added default schema from file:/home/tommaso/git/MultiLayer_Monitor/TestProject/WorkloadGenerator_lib/soapui-4.6.0.jar!/com/eviware/soapui/resources/xsds/xop.xsd with targetNamespace http://www.w3.org/2004/08/xop/include
+2016-05-13 16:17:02,791 INFO  [SchemaUtils] Added default schema from file:/home/tommaso/git/MultiLayer_Monitor/TestProject/WorkloadGenerator_lib/soapui-4.6.0.jar!/com/eviware/soapui/resources/xsds/XMLSchema.xsd with targetNamespace http://www.w3.org/2001/XMLSchema
+2016-05-13 16:17:02,793 INFO  [SchemaUtils] Added default schema from file:/home/tommaso/git/MultiLayer_Monitor/TestProject/WorkloadGenerator_lib/soapui-4.6.0.jar!/com/eviware/soapui/resources/xsds/xml.xsd with targetNamespace http://www.w3.org/XML/1998/namespace
+2016-05-13 16:17:02,803 INFO  [SchemaUtils] Added default schema from file:/home/tommaso/git/MultiLayer_Monitor/TestProject/WorkloadGenerator_lib/soapui-4.6.0.jar!/com/eviware/soapui/resources/xsds/swaref.xsd with targetNamespace http://ws-i.org/profiles/basic/1.1/xsd
+2016-05-13 16:17:02,804 INFO  [SchemaUtils] Added default schema from file:/home/tommaso/git/MultiLayer_Monitor/TestProject/WorkloadGenerator_lib/soapui-4.6.0.jar!/com/eviware/soapui/resources/xsds/xmime200505.xsd with targetNamespace http://www.w3.org/2005/05/xmlmime
+2016-05-13 16:17:02,805 INFO  [SchemaUtils] Added default schema from file:/home/tommaso/git/MultiLayer_Monitor/TestProject/WorkloadGenerator_lib/soapui-4.6.0.jar!/com/eviware/soapui/resources/xsds/xmime200411.xsd with targetNamespace http://www.w3.org/2004/11/xmlmime
+2016-05-13 16:17:02,812 INFO  [SchemaUtils] Added default schema from file:/home/tommaso/git/MultiLayer_Monitor/TestProject/WorkloadGenerator_lib/soapui-4.6.0.jar!/com/eviware/soapui/resources/xsds/soapEnvelope.xsd with targetNamespace http://schemas.xmlsoap.org/soap/envelope/
+2016-05-13 16:17:02,843 INFO  [SchemaUtils] Added default schema from file:/home/tommaso/git/MultiLayer_Monitor/TestProject/WorkloadGenerator_lib/soapui-4.6.0.jar!/com/eviware/soapui/resources/xsds/soapEncoding.xsd with targetNamespace http://schemas.xmlsoap.org/soap/encoding/
+2016-05-13 16:17:02,846 INFO  [SchemaUtils] Added default schema from file:/home/tommaso/git/MultiLayer_Monitor/TestProject/WorkloadGenerator_lib/soapui-4.6.0.jar!/com/eviware/soapui/resources/xsds/soapEnvelope12.xsd with targetNamespace http://www.w3.org/2003/05/soap-envelope
+2016-05-13 16:17:02,862 INFO  [SchemaUtils] Added default schema from file:/home/tommaso/git/MultiLayer_Monitor/TestProject/WorkloadGenerator_lib/soapui-4.6.0.jar!/com/eviware/soapui/resources/xsds/soapEncoding12.xsd with targetNamespace http://www.w3.org/2003/05/soap-encoding
+2016-05-13 16:17:05,530 INFO  [SchemaUtils] Loading schema types from [http://null:null@192.168.2.151:8080/api/axis/Portal_UserService?wsdl]
+2016-05-13 16:17:05,534 INFO  [SchemaUtils] Getting schema http://null:null@192.168.2.151:8080/api/axis/Portal_UserService?wsdl
+2016-05-13 16:17:06,993 INFO  [WsdlImporter] Finding importer for {urn:http.service.portal.liferay.com}Portal_UserServiceSoapBinding
+2016-05-13 16:17:07,000 INFO  [WsdlImporter] Importing binding {urn:http.service.portal.liferay.com}Portal_UserServiceSoapBinding
+2016-05-13 16:17:07,032 INFO  [Soap11HttpBindingImporter] importing endpoint http://192.168.2.151:8080/api/axis/Portal_UserService
+2016-05-13 16:17:07,321 INFO  [Soap11HttpBindingImporter] importing operation addGroupUsers
+2016-05-13 16:17:07,336 INFO  [Soap11HttpBindingImporter] importing operation addOrganizationUsers
+2016-05-13 16:17:07,337 INFO  [Soap11HttpBindingImporter] importing operation addPasswordPolicyUsers
+2016-05-13 16:17:07,338 INFO  [Soap11HttpBindingImporter] importing operation addRoleUsers
+2016-05-13 16:17:07,338 INFO  [Soap11HttpBindingImporter] importing operation addTeamUsers
+2016-05-13 16:17:07,344 INFO  [Soap11HttpBindingImporter] importing operation addUser
+2016-05-13 16:17:07,345 INFO  [Soap11HttpBindingImporter] importing operation addUser
+2016-05-13 16:17:07,345 INFO  [Soap11HttpBindingImporter] importing operation addUserGroupUsers
+2016-05-13 16:17:07,346 INFO  [Soap11HttpBindingImporter] importing operation addUserWithWorkflow
+2016-05-13 16:17:07,346 INFO  [Soap11HttpBindingImporter] importing operation addUserWithWorkflow
+2016-05-13 16:17:07,347 INFO  [Soap11HttpBindingImporter] importing operation deletePortrait
+2016-05-13 16:17:07,347 INFO  [Soap11HttpBindingImporter] importing operation deleteRoleUser
+2016-05-13 16:17:07,348 INFO  [Soap11HttpBindingImporter] importing operation deleteUser
+2016-05-13 16:17:07,348 INFO  [Soap11HttpBindingImporter] importing operation getCompanyUsers
+2016-05-13 16:17:07,349 INFO  [Soap11HttpBindingImporter] importing operation getCompanyUsersCount
+2016-05-13 16:17:07,349 INFO  [Soap11HttpBindingImporter] importing operation getDefaultUserId
+2016-05-13 16:17:07,350 INFO  [Soap11HttpBindingImporter] importing operation getGroupUserIds
+2016-05-13 16:17:07,351 INFO  [Soap11HttpBindingImporter] importing operation getGroupUsers
+2016-05-13 16:17:07,351 INFO  [Soap11HttpBindingImporter] importing operation getOrganizationUserIds
+2016-05-13 16:17:07,352 INFO  [Soap11HttpBindingImporter] importing operation getOrganizationUsers
+2016-05-13 16:17:07,352 INFO  [Soap11HttpBindingImporter] importing operation getRoleUserIds
+2016-05-13 16:17:07,353 INFO  [Soap11HttpBindingImporter] importing operation getUserByEmailAddress
+2016-05-13 16:17:07,353 INFO  [Soap11HttpBindingImporter] importing operation getUserById
+2016-05-13 16:17:07,354 INFO  [Soap11HttpBindingImporter] importing operation getUserByScreenName
+2016-05-13 16:17:07,354 INFO  [Soap11HttpBindingImporter] importing operation getUserGroupUsers
+2016-05-13 16:17:07,355 INFO  [Soap11HttpBindingImporter] importing operation getUserIdByEmailAddress
+2016-05-13 16:17:07,355 INFO  [Soap11HttpBindingImporter] importing operation getUserIdByScreenName
+2016-05-13 16:17:07,356 INFO  [Soap11HttpBindingImporter] importing operation hasGroupUser
+2016-05-13 16:17:07,356 INFO  [Soap11HttpBindingImporter] importing operation hasRoleUser
+2016-05-13 16:17:07,357 INFO  [Soap11HttpBindingImporter] importing operation hasRoleUser
+2016-05-13 16:17:07,357 INFO  [Soap11HttpBindingImporter] importing operation setRoleUsers
+2016-05-13 16:17:07,357 INFO  [Soap11HttpBindingImporter] importing operation setUserGroupUsers
+2016-05-13 16:17:07,358 INFO  [Soap11HttpBindingImporter] importing operation unsetGroupTeamsUsers
+2016-05-13 16:17:07,358 INFO  [Soap11HttpBindingImporter] importing operation unsetGroupUsers
+2016-05-13 16:17:07,359 INFO  [Soap11HttpBindingImporter] importing operation unsetOrganizationUsers
+2016-05-13 16:17:07,359 INFO  [Soap11HttpBindingImporter] importing operation unsetPasswordPolicyUsers
+2016-05-13 16:17:07,360 INFO  [Soap11HttpBindingImporter] importing operation unsetRoleUsers
+2016-05-13 16:17:07,360 INFO  [Soap11HttpBindingImporter] importing operation unsetTeamUsers
+2016-05-13 16:17:07,361 INFO  [Soap11HttpBindingImporter] importing operation unsetUserGroupUsers
+2016-05-13 16:17:07,361 INFO  [Soap11HttpBindingImporter] importing operation updateAgreedToTermsOfUse
+2016-05-13 16:17:07,362 INFO  [Soap11HttpBindingImporter] importing operation updateEmailAddress
+2016-05-13 16:17:07,362 INFO  [Soap11HttpBindingImporter] importing operation updateIncompleteUser
+2016-05-13 16:17:07,363 INFO  [Soap11HttpBindingImporter] importing operation updateLockoutById
+2016-05-13 16:17:07,363 INFO  [Soap11HttpBindingImporter] importing operation updateOpenId
+2016-05-13 16:17:07,363 INFO  [Soap11HttpBindingImporter] importing operation updateOrganizations
+2016-05-13 16:17:07,364 INFO  [Soap11HttpBindingImporter] importing operation updatePassword
+2016-05-13 16:17:07,364 INFO  [Soap11HttpBindingImporter] importing operation updatePortrait
+2016-05-13 16:17:07,365 INFO  [Soap11HttpBindingImporter] importing operation updateReminderQuery
+2016-05-13 16:17:07,365 INFO  [Soap11HttpBindingImporter] importing operation updateScreenName
+2016-05-13 16:17:07,369 INFO  [Soap11HttpBindingImporter] importing operation updateStatus
+2016-05-13 16:17:07,369 INFO  [Soap11HttpBindingImporter] importing operation updateUser
+2016-05-13 16:17:07,370 INFO  [Soap11HttpBindingImporter] importing operation updateUser
+2016-05-13 16:17:07,615 WARN  [WsdlUtils] java.lang.IllegalArgumentException: Duplicate operation with name=addUser, found in portType '{urn:http.service.portal.liferay.com}UserServiceSoap'.
+2016-05-13 16:17:07,672 WARN  [WsdlUtils] java.lang.IllegalArgumentException: Duplicate operation with name=addUser, found in portType '{urn:http.service.portal.liferay.com}UserServiceSoap'.
+2016-05-13 16:17:07,726 WARN  [WsdlUtils] java.lang.IllegalArgumentException: Duplicate operation with name=addUserWithWorkflow, found in portType '{urn:http.service.portal.liferay.com}UserServiceSoap'.
+2016-05-13 16:17:07,798 WARN  [WsdlUtils] java.lang.IllegalArgumentException: Duplicate operation with name=addUserWithWorkflow, found in portType '{urn:http.service.portal.liferay.com}UserServiceSoap'.
+2016-05-13 16:17:08,016 WARN  [WsdlUtils] java.lang.IllegalArgumentException: Duplicate operation with name=hasRoleUser, found in portType '{urn:http.service.portal.liferay.com}UserServiceSoap'.
+2016-05-13 16:17:08,032 WARN  [WsdlUtils] java.lang.IllegalArgumentException: Duplicate operation with name=hasRoleUser, found in portType '{urn:http.service.portal.liferay.com}UserServiceSoap'.
+2016-05-13 16:17:08,399 WARN  [WsdlUtils] java.lang.IllegalArgumentException: Duplicate operation with name=updateUser, found in portType '{urn:http.service.portal.liferay.com}UserServiceSoap'.
+2016-05-13 16:17:08,463 WARN  [WsdlUtils] java.lang.IllegalArgumentException: Duplicate operation with name=updateUser, found in portType '{urn:http.service.portal.liferay.com}UserServiceSoap'.
+2016-05-13 16:17:10,149 INFO  [SchemaUtils] Loading schema types from [http://null:null@192.168.2.151:8080/api/axis/Portal_GroupService?wsdl]
+2016-05-13 16:17:10,162 INFO  [SchemaUtils] Getting schema http://null:null@192.168.2.151:8080/api/axis/Portal_GroupService?wsdl
+2016-05-13 16:17:10,744 INFO  [WsdlImporter] Finding importer for {urn:http.service.portal.liferay.com}Portal_GroupServiceSoapBinding
+2016-05-13 16:17:10,745 INFO  [WsdlImporter] Importing binding {urn:http.service.portal.liferay.com}Portal_GroupServiceSoapBinding
+2016-05-13 16:17:10,745 INFO  [Soap11HttpBindingImporter] importing endpoint http://192.168.2.151:8080/api/axis/Portal_GroupService
+2016-05-13 16:17:10,747 INFO  [Soap11HttpBindingImporter] importing operation addGroup
+2016-05-13 16:17:10,748 INFO  [Soap11HttpBindingImporter] importing operation addGroup
+2016-05-13 16:17:10,749 INFO  [Soap11HttpBindingImporter] importing operation addRoleGroups
+2016-05-13 16:17:10,751 INFO  [Soap11HttpBindingImporter] importing operation deleteGroup
+2016-05-13 16:17:10,751 INFO  [Soap11HttpBindingImporter] importing operation getGroup
+2016-05-13 16:17:10,758 INFO  [Soap11HttpBindingImporter] importing operation getGroup
+2016-05-13 16:17:10,759 INFO  [Soap11HttpBindingImporter] importing operation getManageableSites
+2016-05-13 16:17:10,759 INFO  [Soap11HttpBindingImporter] importing operation getOrganizationsGroups
+2016-05-13 16:17:10,759 INFO  [Soap11HttpBindingImporter] importing operation getUserGroup
+2016-05-13 16:17:10,760 INFO  [Soap11HttpBindingImporter] importing operation getUserGroupsGroups
+2016-05-13 16:17:10,760 INFO  [Soap11HttpBindingImporter] importing operation getUserOrganizationsGroups
+2016-05-13 16:17:10,761 INFO  [Soap11HttpBindingImporter] importing operation getUserPlaces
+2016-05-13 16:17:10,761 INFO  [Soap11HttpBindingImporter] importing operation getUserPlaces
+2016-05-13 16:17:10,762 INFO  [Soap11HttpBindingImporter] importing operation getUserPlaces
+2016-05-13 16:17:10,762 INFO  [Soap11HttpBindingImporter] importing operation getUserSites
+2016-05-13 16:17:10,762 INFO  [Soap11HttpBindingImporter] importing operation hasUserGroup
+2016-05-13 16:17:10,763 INFO  [Soap11HttpBindingImporter] importing operation search
+2016-05-13 16:17:10,763 INFO  [Soap11HttpBindingImporter] importing operation searchCount
+2016-05-13 16:17:10,763 INFO  [Soap11HttpBindingImporter] importing operation setRoleGroups
+2016-05-13 16:17:10,764 INFO  [Soap11HttpBindingImporter] importing operation unsetRoleGroups
+2016-05-13 16:17:10,764 INFO  [Soap11HttpBindingImporter] importing operation updateFriendlyURL
+2016-05-13 16:17:10,765 INFO  [Soap11HttpBindingImporter] importing operation updateGroup
+2016-05-13 16:17:10,765 INFO  [Soap11HttpBindingImporter] importing operation updateGroup
+2016-05-13 16:17:10,769 WARN  [WsdlUtils] java.lang.IllegalArgumentException: Duplicate operation with name=addGroup, found in portType '{urn:http.service.portal.liferay.com}GroupServiceSoap'.
+2016-05-13 16:17:10,792 WARN  [WsdlUtils] java.lang.IllegalArgumentException: Duplicate operation with name=addGroup, found in portType '{urn:http.service.portal.liferay.com}GroupServiceSoap'.
+2016-05-13 16:17:10,814 WARN  [WsdlUtils] java.lang.IllegalArgumentException: Duplicate operation with name=getGroup, found in portType '{urn:http.service.portal.liferay.com}GroupServiceSoap'.
+2016-05-13 16:17:10,818 WARN  [WsdlUtils] java.lang.IllegalArgumentException: Duplicate operation with name=getGroup, found in portType '{urn:http.service.portal.liferay.com}GroupServiceSoap'.
+2016-05-13 16:17:10,869 WARN  [WsdlUtils] java.lang.IllegalArgumentException: Duplicate operation with name=getUserPlaces, found in portType '{urn:http.service.portal.liferay.com}GroupServiceSoap'.
+2016-05-13 16:17:10,879 WARN  [WsdlUtils] java.lang.IllegalArgumentException: Duplicate operation with name=getUserPlaces, found in portType '{urn:http.service.portal.liferay.com}GroupServiceSoap'.
+2016-05-13 16:17:10,890 WARN  [WsdlUtils] java.lang.IllegalArgumentException: Duplicate operation with name=getUserPlaces, found in portType '{urn:http.service.portal.liferay.com}GroupServiceSoap'.
+2016-05-13 16:17:10,928 WARN  [WsdlUtils] java.lang.IllegalArgumentException: Duplicate operation with name=updateGroup, found in portType '{urn:http.service.portal.liferay.com}GroupServiceSoap'.
+2016-05-13 16:17:10,954 WARN  [WsdlUtils] java.lang.IllegalArgumentException: Duplicate operation with name=updateGroup, found in portType '{urn:http.service.portal.liferay.com}GroupServiceSoap'.
+2016-05-13 16:17:13,094 INFO  [SchemaUtils] Loading schema types from [http://null:null@192.168.2.151:8080/api/axis/Portlet_Polls_PollsQuestionService?wsdl]
+2016-05-13 16:17:13,094 INFO  [SchemaUtils] Getting schema http://null:null@192.168.2.151:8080/api/axis/Portlet_Polls_PollsQuestionService?wsdl
+2016-05-13 16:17:13,373 INFO  [WsdlImporter] Finding importer for {urn:http.service.polls.portlet.liferay.com}Portlet_Polls_PollsQuestionServiceSoapBinding
+2016-05-13 16:17:13,373 INFO  [WsdlImporter] Importing binding {urn:http.service.polls.portlet.liferay.com}Portlet_Polls_PollsQuestionServiceSoapBinding
+2016-05-13 16:17:13,374 INFO  [Soap11HttpBindingImporter] importing endpoint http://192.168.2.151:8080/api/axis/Portlet_Polls_PollsQuestionService
+2016-05-13 16:17:13,375 INFO  [Soap11HttpBindingImporter] importing operation addQuestion
+2016-05-13 16:17:13,375 INFO  [Soap11HttpBindingImporter] importing operation deleteQuestion
+2016-05-13 16:17:13,376 INFO  [Soap11HttpBindingImporter] importing operation getQuestion
+2016-05-13 16:17:13,376 INFO  [Soap11HttpBindingImporter] importing operation updateQuestion
+2016-05-13 16:17:15,454 INFO  [WorkspaceImpl] Saved workspace to [/tmp/prova.xml]

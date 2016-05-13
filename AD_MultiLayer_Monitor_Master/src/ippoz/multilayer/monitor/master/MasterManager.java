@@ -94,7 +94,9 @@ public class MasterManager {
 			currentWorkload = null;
 			try {
 				if(wFile.getName().endsWith(".xml") && wFile.getName().toUpperCase().contains("WORKLOAD")){
-					currentWorkload = new SoapXmlWorkload(wFile, null, workloadDetails.get(wFile.getName()).get("MIN_TIME"), workloadDetails.get(wFile.getName()).get("MIN_TIME"));
+					if(workloadDetails.get(wFile.getName()) != null)
+						currentWorkload = new SoapXmlWorkload(wFile, null, workloadDetails.get(wFile.getName()).get("MIN_TIME"), workloadDetails.get(wFile.getName()).get("MIN_TIME"));
+					else currentWorkload = new SoapXmlWorkload(wFile, null, 0, Integer.MAX_VALUE);
 				}
 				if(currentWorkload != null){
 					workloads.add(currentWorkload);
@@ -312,8 +314,8 @@ public class MasterManager {
 	 */
 	private void executeExperiments(LinkedList<Experiment> currentList, String tag){
 		int i = 1;
-		for(Experiment currentExp : expList){
-			AppLogger.logInfo(getClass(), "Executing " + tag + " " + i + "/" + expList.size() + ": " + currentExp.getExpType() + "Repeated " + currentExp.getIterations() + " times");
+		for(Experiment currentExp : currentList){
+			AppLogger.logInfo(getClass(), "Executing " + tag + " " + i + "/" + currentList.size() + ": " + currentExp.getExpType() + " Repeated " + currentExp.getIterations() + " times");
 			currentExp.executeExperiment(cManager);
 			currentExp = null;
 			i++;

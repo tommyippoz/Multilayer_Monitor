@@ -53,7 +53,7 @@ public class DatabaseConnector {
 		Statement stmt;
 		try {
 			stmt = conn.createStatement();
-			AppLogger.logInfo(getClass(), "QUERY: " + query);
+			//AppLogger.logInfo(getClass(), "QUERY: " + query);
 			stmt.executeUpdate(query);
 			return true;
 		} catch (SQLException e) {
@@ -67,7 +67,7 @@ public class DatabaseConnector {
 		ResultSet rs = null;
 		try {
 			stmt = conn.createStatement();
-			AppLogger.logInfo(getClass(), "QUERY: " + query);
+			//AppLogger.logInfo(getClass(), "QUERY: " + query);
 			rs = stmt.executeQuery(query);
 			return parseResultSet(rs);
 		} catch (SQLException e) {
