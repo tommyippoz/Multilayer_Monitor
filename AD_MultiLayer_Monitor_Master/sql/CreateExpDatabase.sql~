@@ -73,7 +73,7 @@ create table service_method_invocation (service_method_invocation_id int primary
 	foreign key (service_method_id) references service_method(service_method_id) on delete cascade,
     foreign key (run_id) references run(run_id) on delete cascade);
     
-create table service_stat (service_stat_id int primary key auto_increment, service_id int, serv_dur_avg double, serv_dur_std double, serv_dur_std_perc double, serv_obs_avg double, serv_obs_std double, serv_obs_std_perc double,
+create table service_stat (service_stat_id int primary key auto_increment, service_id int, serv_dur_avg double, serv_dur_std double, serv_dur_std_perc double, serv_obs_avg double, serv_obs_std double, serv_obs_std_perc double 
     foreign key (service_id) references service(service_id) on delete cascade);
     
 create table service_method_stat (service_method_stat_id int primary key auto_increment, service_method_id int, sm_dur_avg double, sm_dur_std double, sm_dur_std_perc double, sm_obs_avg double, sm_obs_std double, sm_obs_std_perc double, 

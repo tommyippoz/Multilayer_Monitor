@@ -95,7 +95,7 @@ public class MasterManager {
 			try {
 				if(wFile.getName().endsWith(".xml") && wFile.getName().toUpperCase().contains("WORKLOAD")){
 					if(workloadDetails.get(wFile.getName()) != null)
-						currentWorkload = new SoapXmlWorkload(wFile, null, workloadDetails.get(wFile.getName()).get("MIN_TIME"), workloadDetails.get(wFile.getName()).get("MIN_TIME"));
+						currentWorkload = new SoapXmlWorkload(wFile, null, workloadDetails.get(wFile.getName()).get("MIN_TIME"), workloadDetails.get(wFile.getName()).get("MAX_TIME"));
 					else currentWorkload = new SoapXmlWorkload(wFile, null, 0, Integer.MAX_VALUE);
 				}
 				if(currentWorkload != null){

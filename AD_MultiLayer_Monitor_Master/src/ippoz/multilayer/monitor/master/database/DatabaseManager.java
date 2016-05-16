@@ -108,7 +108,7 @@ public class DatabaseManager {
 	}
 	
 	public void undoExperiment() {
-		connector.update("delete from run where run_id = (select max(run_id) from run)");
+		connector.update("delete from run order by run_id desc limit 1");
 	}
 	
 	private String getWorkloadID(Workload workload, boolean insertFlag) {
