@@ -62,6 +62,10 @@ public class Indicator implements Comparable<Indicator>{
 	public LayerType getLayer(){
 		return indicatorLayer;
 	}
+	
+	public Class<?> getIndicatorType(){
+		return indicatorType;
+	}
 
 	@Override
 	public int compareTo(Indicator other) {

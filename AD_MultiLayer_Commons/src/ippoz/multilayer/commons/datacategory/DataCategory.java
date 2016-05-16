@@ -14,5 +14,5 @@ public enum DataCategory {
 	PLAIN,
 	
 	/** The diff data category: difference between current and previous observation. */
-	DIFF
+	DIFFERENCE
 }
