@@ -45,5 +45,8 @@ public enum LayerType {
 	JBOSS,
 	
 	/** The no layer placeholder. */
-	NO_LAYER
+	NO_LAYER, 
+	
+	/** The composition placeholder. */
+	COMPOSITION
 }
