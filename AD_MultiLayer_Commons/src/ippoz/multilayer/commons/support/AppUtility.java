@@ -70,16 +70,15 @@ public class AppUtility {
 						if(tags != null && tags.length > 0){
 							for(String current : tags){
 								if(current.toUpperCase().equals(tag.toUpperCase())){
-									map.put(tag, value);
+									map.put(tag.trim(), value.trim());
 									break;
 								}
 							}
-						} else map.put(tag, value);
+						} else map.put(tag.trim(), value.trim());
 					}
 				}
 			}
 			reader.close();
-			//AppLogger.logInfo(AppUtility.class, map.size() + " preferences readed");
 		} else {
 			AppLogger.logInfo(AppUtility.class, "Unexisting preference file: " + prefFile.getAbsolutePath());
 		}
