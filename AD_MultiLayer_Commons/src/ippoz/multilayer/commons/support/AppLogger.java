@@ -62,7 +62,7 @@ public class AppLogger {
 	private static void log(String tag, String location, String message, Level level, boolean newLine){
 		String aggMessage = "[" + tag + "][" + location + "] " + message;
 		if(logger == null)
-			new AppLogger("AppLogger", "/home/tommaso/workspace/", true);
+			new AppLogger("AppLogger", "", true);
 		logger.log(level, aggMessage);
 		if(console){
 			if(newLine)
