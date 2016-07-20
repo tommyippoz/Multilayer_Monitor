@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 
-import ippoz.multilayer.monitor.layers.LayerType;
+import ippoz.multilayer.commons.layers.LayerType;
 
 /**
  * @author root

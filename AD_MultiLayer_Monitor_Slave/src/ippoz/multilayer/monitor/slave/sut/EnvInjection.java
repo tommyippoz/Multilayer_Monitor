@@ -62,7 +62,7 @@ public class EnvInjection extends Injection {
 			writer.write("export LIFERAY_CLEAN_VARIABLES=1\n");
 			writer.write("export LIFERAY_START_TIME=$(date +%s)\n");
 			writer.write("export LIFERAY_WORKLOAD_WAIT=" + (120+delay/1000) + "\n");
-			writer.write("export FAILURE_DURATION=5\n\n");
+			writer.write("export FAILURE_DURATION=2\n\n");
 			for(String env : envVar) {
 				writer.write("export " + env + "=1\n");
 			}
@@ -72,7 +72,7 @@ public class EnvInjection extends Injection {
 			}
 			writer.close();
 		} catch(Exception ex){
-			
+			AppLogger.logException(getClass(), ex, "Unable to inject env");
 		}
 	}
 	
@@ -116,6 +116,8 @@ public class EnvInjection extends Injection {
 					outTime = AppUtility.parseStringTime(readed.split(";")[0], 1);
 				}
 			}
+			if(outTime > 0)
+				AppLogger.logInfo(getClass(), "Fault activated at " + outTime);
 			reader.close();
 		} catch(IOException ex){
 			AppLogger.logException(getClass(), ex, "Unable to read Injection Log File");

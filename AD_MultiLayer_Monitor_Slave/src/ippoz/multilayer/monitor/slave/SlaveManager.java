@@ -8,9 +8,9 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.LinkedList;
 
+import ippoz.multilayer.commons.layers.LayerType;
 import ippoz.multilayer.monitor.communication.CommunicationManager;
 import ippoz.multilayer.monitor.communication.MessageType;
-import ippoz.multilayer.monitor.layers.LayerType;
 import ippoz.multilayer.monitor.slave.probes.sender.ProbeManager;
 import ippoz.multilayer.monitor.slave.probes.sender.CentOSProbe;
 import ippoz.multilayer.monitor.slave.probes.sender.JMXProbe;
@@ -167,9 +167,19 @@ public class SlaveManager {
 								case "NETWORK":
 									current = new EnvInjection("LIFERAY", "NETWORK", Long.valueOf(((String) commArray[i]).split(";")[2]), "/home/cecris/start_instrumented.sh", "/tmp/liferayErrLog_", parseInjDetails("NETWORK", ((String) commArray[i]).split(";")));
 									break;
+								case "DISK":
+									current = new EnvInjection("LIFERAY", "DISK", Long.valueOf(((String) commArray[i]).split(";")[2]), "/home/cecris/start_instrumented.sh", "/tmp/liferayErrLog_", parseInjDetails("NETWORK", ((String) commArray[i]).split(";")));
+									break;
+								case "NETPERM":
+									current = new EnvInjection("LIFERAY", "NETPERM", Long.valueOf(((String) commArray[i]).split(";")[2]), "/home/cecris/start_instrumented.sh", "/tmp/liferayErrLog_", parseInjDetails("NETWORK", ((String) commArray[i]).split(";")));
+									break;
+								case "DEADLOCK":
+									current = new EnvInjection("LIFERAY", "DEADLOCK", Long.valueOf(((String) commArray[i]).split(";")[2]), "/home/cecris/start_instrumented.sh", "/tmp/liferayErrLog_", parseInjDetails("NETWORK", ((String) commArray[i]).split(";")));
+									break;
 								default:
 									AppLogger.logError(getClass(), "UnrecognizedLIFERAYinjection", "Unable to recognize test type " + ((String) commArray[i]).split(",")[1]);
 							}
+							AppLogger.logInfo(getClass(), "Got LIFERAY Injection");
 							break;
 						default:
 							AppLogger.logError(getClass(), "UnrecognizedInjection", "Unable to recognize Injection");

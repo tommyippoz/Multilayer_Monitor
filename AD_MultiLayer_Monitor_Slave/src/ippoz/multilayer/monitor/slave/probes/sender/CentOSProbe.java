@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-import ippoz.multilayer.monitor.layers.LayerType;
+import ippoz.multilayer.commons.layers.LayerType;
 import ippoz.multilayer.monitor.support.AppLogger;
 import ippoz.multilayer.monitor.support.AppUtility;
 

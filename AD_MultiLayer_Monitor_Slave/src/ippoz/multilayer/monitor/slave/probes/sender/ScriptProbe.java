@@ -3,7 +3,7 @@
  */
 package ippoz.multilayer.monitor.slave.probes.sender;
 
-import ippoz.multilayer.monitor.layers.LayerType;
+import ippoz.multilayer.commons.layers.LayerType;
 import ippoz.multilayer.monitor.support.AppLogger;
 import ippoz.multilayer.monitor.support.AppUtility;
 

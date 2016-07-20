@@ -6,7 +6,7 @@ package ippoz.multilayer.monitor.slave.probes.sender;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import ippoz.multilayer.monitor.layers.LayerType;
+import ippoz.multilayer.commons.layers.LayerType;
 import ippoz.multilayer.monitor.support.AppLogger;
 
 /**
