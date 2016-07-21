@@ -1,0 +1,334 @@
+lug 21, 2016 9:44:13 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.MasterManager] Fetching workloads 
+lug 21, 2016 9:44:30 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service addProduct
+lug 21, 2016 9:44:30 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service createSite
+lug 21, 2016 9:44:30 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service addProductVersion
+lug 21, 2016 9:44:30 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service licenseAssign
+lug 21, 2016 9:44:30 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service getTags
+lug 21, 2016 9:44:30 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service addNode
+lug 21, 2016 9:44:30 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service AddNewTag
+lug 21, 2016 9:44:30 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service addPage
+lug 21, 2016 9:44:30 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.MasterManager] Readed 'GOLDEN' experiment: Workload_AllServices.xml
+lug 21, 2016 9:44:31 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service addProduct
+lug 21, 2016 9:44:31 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service createSite
+lug 21, 2016 9:44:31 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service addProductVersion
+lug 21, 2016 9:44:31 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service licenseAssign
+lug 21, 2016 9:44:31 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service getTags
+lug 21, 2016 9:44:31 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service addNode
+lug 21, 2016 9:44:31 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service AddNewTag
+lug 21, 2016 9:44:31 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service addPage
+lug 21, 2016 9:44:31 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.MasterManager] Readed 'FAULTY' experiment: Workload_AllServices.xml
+lug 21, 2016 9:44:32 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service addProduct
+lug 21, 2016 9:44:32 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service createSite
+lug 21, 2016 9:44:32 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service addProductVersion
+lug 21, 2016 9:44:32 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service licenseAssign
+lug 21, 2016 9:44:32 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service getTags
+lug 21, 2016 9:44:32 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service addNode
+lug 21, 2016 9:44:32 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service AddNewTag
+lug 21, 2016 9:44:32 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service addPage
+lug 21, 2016 9:44:32 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.MasterManager] Readed 'FAULTY' experiment: Workload_AllServices.xml
+lug 21, 2016 9:44:32 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service addProduct
+lug 21, 2016 9:44:32 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service createSite
+lug 21, 2016 9:44:32 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service addProductVersion
+lug 21, 2016 9:44:32 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service licenseAssign
+lug 21, 2016 9:44:32 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service getTags
+lug 21, 2016 9:44:32 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service addNode
+lug 21, 2016 9:44:32 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service AddNewTag
+lug 21, 2016 9:44:32 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][NoSuchWorkload@ippoz.multilayer.commons.support.AppUtility] Unable to find test workload for service addPage
+lug 21, 2016 9:44:32 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.MasterManager] Readed 'FAULTY' experiment: Workload_AllServices.xml
+lug 21, 2016 9:58:06 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.MasterManager] NTP Synchronization checked
+lug 21, 2016 9:58:06 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.MasterManager] Executing test 1/1: TEST Repeated 2 times
+lug 21, 2016 9:58:06 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] TEST Experiment started: Run 1/2
+lug 21, 2016 9:58:06 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] Starting SUT ..... 
+lug 21, 2016 10:00:06 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] Executing workload "WorkloadTest_addBookmark.xml"
+lug 21, 2016 10:00:55 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] Shutdowning SUT ..... 
+lug 21, 2016 10:00:55 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:00:55 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:00:55 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:01:25 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] Collecting Data on Database .....
+lug 21, 2016 10:01:25 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] Experiment needs to be repeated: collected 49 observations
+lug 21, 2016 10:01:26 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] TEST Experiment started: Run 1/2
+lug 21, 2016 10:01:26 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] Starting SUT ..... 
+lug 21, 2016 10:03:26 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] Executing workload "WorkloadTest_addBookmark.xml"
+lug 21, 2016 10:03:57 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] Shutdowning SUT ..... 
+lug 21, 2016 10:03:57 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:03:57 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:03:57 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:04:27 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] Collecting Data on Database .....
+lug 21, 2016 10:04:28 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] TEST Experiment started: Run 2/2
+lug 21, 2016 10:04:28 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] Starting SUT ..... 
+lug 21, 2016 10:06:28 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] Executing workload "WorkloadTest_addBookmark.xml"
+lug 21, 2016 10:07:03 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] Shutdowning SUT ..... 
+lug 21, 2016 10:07:03 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:07:04 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:07:04 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:07:34 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] Collecting Data on Database .....
+lug 21, 2016 10:07:34 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] Experiment needs to be repeated: collected 36 observations
+lug 21, 2016 10:07:34 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] TEST Experiment started: Run 2/2
+lug 21, 2016 10:07:34 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] Starting SUT ..... 
+lug 21, 2016 10:09:34 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] Executing workload "WorkloadTest_addBookmark.xml"
+lug 21, 2016 10:10:07 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] Shutdowning SUT ..... 
+lug 21, 2016 10:10:07 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:10:07 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:10:07 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:10:38 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.ServiceTestExperiment] Collecting Data on Database .....
+lug 21, 2016 10:10:39 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Exception][com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException@ippoz.multilayer.monitor.master.database.DatabaseConnector] com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'NaN' in 'field list'
+lug 21, 2016 10:10:39 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Exception][com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException@ippoz.multilayer.monitor.master.database.DatabaseConnector] com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '15-2-10' for key 'PRIMARY'
+lug 21, 2016 10:10:39 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Exception][com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException@ippoz.multilayer.monitor.master.database.DatabaseConnector] com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '46-1-10' for key 'PRIMARY'
+lug 21, 2016 10:10:39 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.MasterManager] Executing experiment 1/4: GOLDEN Repeated 40 times
+lug 21, 2016 10:10:40 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] GOLDEN Experiment started: Run 1/40
+lug 21, 2016 10:10:40 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Starting SUT ..... 
+lug 21, 2016 10:12:40 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Executing workload "Workload_AllServices.xml"
+lug 21, 2016 10:13:52 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Shutdowning SUT ..... 
+lug 21, 2016 10:13:52 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:13:52 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:13:52 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:14:23 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Collecting Data on Database .....
+lug 21, 2016 10:14:36 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] GOLDEN Experiment started: Run 2/40
+lug 21, 2016 10:14:36 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Starting SUT ..... 
+lug 21, 2016 10:16:36 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Executing workload "Workload_AllServices.xml"
+lug 21, 2016 10:17:50 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Shutdowning SUT ..... 
+lug 21, 2016 10:17:50 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:17:51 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:17:51 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:18:21 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Collecting Data on Database .....
+lug 21, 2016 10:18:27 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] GOLDEN Experiment started: Run 3/40
+lug 21, 2016 10:18:27 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Starting SUT ..... 
+lug 21, 2016 10:20:27 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Executing workload "Workload_AllServices.xml"
+lug 21, 2016 10:22:29 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Shutdowning SUT ..... 
+lug 21, 2016 10:22:29 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:22:30 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:22:30 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:23:00 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Collecting Data on Database .....
+lug 21, 2016 10:23:00 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Experiment needs to be repeated: collected 123 observations
+lug 21, 2016 10:23:00 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] GOLDEN Experiment started: Run 3/40
+lug 21, 2016 10:23:00 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Starting SUT ..... 
+lug 21, 2016 10:25:00 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Executing workload "Workload_AllServices.xml"
+lug 21, 2016 10:26:09 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Shutdowning SUT ..... 
+lug 21, 2016 10:26:09 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:26:09 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:26:09 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:26:39 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Collecting Data on Database .....
+lug 21, 2016 10:26:40 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] GOLDEN Experiment started: Run 4/40
+lug 21, 2016 10:26:40 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Starting SUT ..... 
+lug 21, 2016 10:28:40 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Executing workload "Workload_AllServices.xml"
+lug 21, 2016 10:29:54 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Shutdowning SUT ..... 
+lug 21, 2016 10:29:54 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:29:55 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:29:55 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:30:25 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Collecting Data on Database .....
+lug 21, 2016 10:30:32 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] GOLDEN Experiment started: Run 5/40
+lug 21, 2016 10:30:32 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Starting SUT ..... 
+lug 21, 2016 10:32:32 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Executing workload "Workload_AllServices.xml"
+lug 21, 2016 10:33:35 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Shutdowning SUT ..... 
+lug 21, 2016 10:33:35 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:33:36 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:33:36 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:34:06 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Collecting Data on Database .....
+lug 21, 2016 10:34:11 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] GOLDEN Experiment started: Run 6/40
+lug 21, 2016 10:34:11 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Starting SUT ..... 
+lug 21, 2016 10:36:11 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Executing workload "Workload_AllServices.xml"
+lug 21, 2016 10:38:19 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Shutdowning SUT ..... 
+lug 21, 2016 10:38:19 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:38:20 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:38:20 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:38:50 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Collecting Data on Database .....
+lug 21, 2016 10:38:50 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Experiment needs to be repeated: collected 129 observations
+lug 21, 2016 10:38:50 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] GOLDEN Experiment started: Run 6/40
+lug 21, 2016 10:38:50 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Starting SUT ..... 
+lug 21, 2016 10:40:50 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Executing workload "Workload_AllServices.xml"
+lug 21, 2016 10:42:08 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Shutdowning SUT ..... 
+lug 21, 2016 10:42:08 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:42:09 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:42:09 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:42:39 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Collecting Data on Database .....
+lug 21, 2016 10:42:45 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] GOLDEN Experiment started: Run 7/40
+lug 21, 2016 10:42:45 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Starting SUT ..... 
+lug 21, 2016 10:44:45 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Executing workload "Workload_AllServices.xml"
+lug 21, 2016 10:46:41 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Shutdowning SUT ..... 
+lug 21, 2016 10:46:41 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:46:41 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:46:41 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:47:11 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Collecting Data on Database .....
+lug 21, 2016 10:47:21 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] GOLDEN Experiment started: Run 8/40
+lug 21, 2016 10:47:21 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Starting SUT ..... 
+lug 21, 2016 10:49:21 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Executing workload "Workload_AllServices.xml"
+lug 21, 2016 10:51:59 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Shutdowning SUT ..... 
+lug 21, 2016 10:51:59 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:51:59 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:51:59 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:52:30 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Collecting Data on Database .....
+lug 21, 2016 10:52:30 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Experiment needs to be repeated: collected 159 observations
+lug 21, 2016 10:52:30 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] GOLDEN Experiment started: Run 8/40
+lug 21, 2016 10:52:30 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Starting SUT ..... 
+lug 21, 2016 10:54:30 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Executing workload "Workload_AllServices.xml"
+lug 21, 2016 10:55:42 AM ippoz.multilayer.commons.support.AppLogger log
+INFORMAZIONI: [Info][ippoz.multilayer.monitor.master.experiment.Experiment] Shutdowning SUT ..... 
+lug 21, 2016 10:55:42 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:55:42 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
+lug 21, 2016 10:55:42 AM ippoz.multilayer.commons.support.AppLogger log
+GRAVE: [Error][EndOfStream@ippoz.multilayer.monitor.master.probes.receiver.JSONSocketProbeReceiver] Detected end of stream
